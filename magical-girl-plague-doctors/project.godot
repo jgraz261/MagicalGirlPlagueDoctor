@@ -15,6 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="MagicalGirlPlagueDoctors"
+run/main_scene="uid://nhc5kgsfw74x"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,8 +25,14 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"Aylin": "res://Aylin.dch",
+"Miakoda": "res://Miakoda.dch",
+"Zombie": "res://Zombie.dch"
+}
+directories/dtl_directory={
+"battle": "res://battle.dtl"
+}
 layout/style_directory={}
 
 [editor_plugins]
