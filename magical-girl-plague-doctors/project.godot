@@ -24,7 +24,11 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"Aylin": "res://Aylin.dch",
+"Miakoda": "res://Miakoda.dch",
+"Zombie": "res://Zombie.dch"
+}
 directories/dtl_directory={}
 layout/style_directory={}
 
