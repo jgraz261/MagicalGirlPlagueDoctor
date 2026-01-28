@@ -1,0 +1,34 @@
+join foe rightmost
+A wild Unwell Customer appeared!
+join Aylin left
+label Aylin_turn
+Aylin: What will Aylin do?
+- Action
+	- Confront
+	- Rest
+	- Rose Vortex
+		Aylin doesn't have enough energy!
+		jump Aylin_turn
+- Item
+	- Healing Tea
+	- Medical Supplies
+- Run
+	Aylin and Mia left
+	leave --All--
+	jump intro/
+leave Aylin
+join Mia left
+label mia_turn
+Mia: What will Mia do?
+- Action
+	- Confront
+	- Rest
+	- Rose Vortex
+		Mia doesn't have enough energy!
+		jump mia_turn
+- Item
+	- Healing Tea
+	- Medical Supplies
+- Run
+	Aylin and Mia left
+	jump intro/
