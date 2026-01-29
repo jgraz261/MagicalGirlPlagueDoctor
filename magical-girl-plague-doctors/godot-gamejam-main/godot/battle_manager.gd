@@ -9,14 +9,13 @@ var player_win : bool = false
 
 func next_turn ():
 # Check for battle end conditions
-	print(player_win)
-	print(game_over)
-	
 	if player_win:
+		print("Players Win!")
 		#Signal *Battle Win* to Dialogic
 		return
 	elif game_over:
-		# Signal *Game Over* to Dilogic
+		print("You got infected! Game Over!")
+		# Signal *Game Over* to Dialogic
 		return
 
 	# Clear any accidentally left open turn
@@ -33,9 +32,9 @@ func next_turn ():
 	
 	# Regain energy and display battle action options
 	current_character.begin_turn()
-	print("** " + current_character["name"]+"'s turn")
 	
 	if current_character.characterType == "mGirl":
+		current_character.recharge_energy()
 		#enable player UI through Dialogic
 		#Get player input
 		battle_action ( current_character.battleActions[0], $Infected )
@@ -57,33 +56,27 @@ func next_turn ():
 		#If all enemies have acted, end turn
 	
 	await get_tree().create_timer(0.5).timeout
-	check_status(player_characters, enemies)
+	check_status(enemies, player_characters)
 	next_turn()
-
-#func battle_action ( action, target : Character ):
-	#print(current_character["name"] + " uses " + action + " on " + target["name"])
-	
-func enemy_decide_action( attacker : Character ):
-	print(attacker["name"] + " attacks!!! ")
 
 func check_status(opponents : Array[Character], players: Array[Character]):
 	
 	var opponentTotalHealth = 0
+	var playersTotalHealth = 0
 	
 	for opponent in opponents:
-		#print(opponent.characterName)
-		#print(opponent.health)
+		print(opponent.characterName + " (health): " + str(opponent.health))
 		opponentTotalHealth += opponent.health
 	if opponentTotalHealth <= 0:
 		player_win = true
 		return
 	
 	for player in players:
-		#print(player.characterName)
-		#print(player.health)
-		if player.health <= 0:
-			game_over = true
-	return
+		print(player.characterName + " (health): " + str(player.health))
+		playersTotalHealth += player.health
+	if playersTotalHealth <= 0:
+		game_over = true
+		return
 
 func battle_action(action : BattleAction, target : Character):
 	current_character.energy -= action.energyCost

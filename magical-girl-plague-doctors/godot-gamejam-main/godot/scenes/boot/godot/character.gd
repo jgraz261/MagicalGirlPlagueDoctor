@@ -16,7 +16,7 @@ var damageMod : float = 1.0
 
 func begin_turn():
 	#Enable UI options
-	pass
+	print("** " + characterName +"'s turn")
 
 func end_turn():
 	#Disable UI options
@@ -31,7 +31,7 @@ func heal (amount : int):
 	health += amount
 	return
 
-func rechargeEnergy():
+func recharge_energy():
 	energy += floor(energyGain * energyMod)
 	energyMod = energyBaseMod
 	return
