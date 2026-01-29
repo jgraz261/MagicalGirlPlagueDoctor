@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://ca3tkvp6hy5e4"]
+
+[ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="1_r4bw0"]
+
+[resource]
+script = ExtResource("1_r4bw0")
+displayName = "Wheeze"
+description = "Reduce Energy recovery by 50%"
+modAmount = 0.5
+metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"

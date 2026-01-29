@@ -4,17 +4,34 @@ extends Node
 
 @export var characterName : String
 @export var characterType : String
-@export var health : int
+@export var health : int = 100
 @export var energy : int
+@export var damageBaseMod : float = 1.0
+@export var energyGain : int = 50
+@export var energyBaseMod : float = 1.0
+var energyMod : float = 1.0
+var damageMod : float = 1.0
+
+@export var battleActions : Array[BattleAction]
 
 func begin_turn():
+	#Enable UI options
 	pass
 
 func end_turn():
+	#Disable UI options
 	pass
 	
 func take_damage(amount : int):
-	pass
+	health -= floor(amount*damageMod)
+	damageMod = damageBaseMod
+	return
 	
 func heal (amount : int):
-	pass
+	health += amount
+	return
+
+func rechargeEnergy():
+	energy += floor(energyGain * energyMod)
+	energyMod = energyBaseMod
+	return
