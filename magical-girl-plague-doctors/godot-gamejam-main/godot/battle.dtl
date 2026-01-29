@@ -1,3 +1,4 @@
+[background arg="res://addons/dialogic/Example Assets/backgrounds/Restaurant_B.png" fade="0.0"]
 join foe rightmost
 A wild Unwell Customer appeared!
 join Aylin left
