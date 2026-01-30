@@ -1,0 +1,9 @@
+[background arg="#360a46ff" fade="1.0" wait="true"]
+join foe rightmost [animation="Slide From Left" length="1.0"]
+A wild Unwell Customer appeared!
+join Mia leftmost [animation="Slide From Right" length="1.0"]
+join Aylin left [animation="Slide From Right" length="1.0"]
+[wait_input]
+leave Mia
+[wait_input]
+[signal]
