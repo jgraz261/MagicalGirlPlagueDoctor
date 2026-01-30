@@ -38,9 +38,12 @@ layout/style_directory={
 layout/style_list=["res://style.tres"]
 layout/default_style="res://style.tres"
 variables={}
+glossary/default_case_sensitive=true
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
