@@ -13,6 +13,10 @@
 script = ExtResource("2_f5okj")
 scene = ExtResource("1_3y0cf")
 
+[sub_resource type="Resource" id="Resource_3y0cf"]
+script = ExtResource("2_f5okj")
+scene = ExtResource("3_3y0cf")
+
 [sub_resource type="Resource" id="Resource_jr2lj"]
 script = ExtResource("2_f5okj")
 scene = ExtResource("4_qi5gt")
@@ -36,10 +40,6 @@ scene = ExtResource("6_i734w")
 overrides = {
 "boxes_offset": "Vector2(350, 270)"
 }
-
-[sub_resource type="Resource" id="Resource_3y0cf"]
-script = ExtResource("2_f5okj")
-scene = ExtResource("3_3y0cf")
 
 [resource]
 script = ExtResource("11_uq65q")
