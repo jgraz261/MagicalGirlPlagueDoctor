@@ -7,6 +7,8 @@ var actionChoice : int = 0
 
 var game_over : bool = false
 var player_win : bool = false
+var turnOrderToken
+var playerTurn : bool = true
 
 func next_turn ():
 # Check for battle end conditions
@@ -18,18 +20,37 @@ func next_turn ():
 		print("You got infected! Game Over!")
 		# Signal *Game Over* to Dialogic
 		return
-
-	# Clear any accidentally left open turn
-	if current_character != null:
-		current_character.end_turn()
 	
+	if turnOrderToken == null:
+		turnOrderToken = 0
+	
+	if !playerTurn:
+		if turnOrderToken <= enemies.size()-1:
+			current_character = enemies[turnOrderToken]
+			turnOrderToken += 1
+		else:
+			playerTurn = !playerTurn
+			turnOrderToken = 0
+	if playerTurn:
+		if turnOrderToken <= player_characters.size()-1:
+			current_character = player_characters[turnOrderToken]
+			turnOrderToken += 1
+		else:
+			playerTurn = !playerTurn
+			turnOrderToken = 0
+			current_character = enemies[turnOrderToken]
+	# Clear any accidentally left open turn
+	#if current_character != null:
+		#current_character.end_turn()
 	# Set current character
-	if current_character == null or current_character.characterType == "enemy" :
-		current_character = player_characters[0]
-	elif current_character == player_characters[0] :
-		current_character = player_characters[1]
-	else :
-		current_character = enemies[0]
+	#if current_character == null:
+		#current_character = player_characters[0]
+	#elif current_character == player_characters[0] :
+		#current_character = player_characters[1]
+	#elif current_character in enemies:
+		#current_character = enemies[0]
+	#Set Current Character in Dialogic
+	Dialogic.VAR.currentCharacter = current_character.characterName
 	
 	# Regain energy and display battle action options
 	current_character.begin_turn()
@@ -73,8 +94,11 @@ func check_status(opponents : Array[Character], players: Array[Character]):
 	set_Dialogic_variables()
 
 func battle_action(action : BattleAction, target : Character):
+	print(current_character.characterName)
 	current_character.energy -= action.energyCost
-	Dialogic.VAR.battleComment=(current_character.characterName + " uses " + action.displayName + " on " + target.characterName)
+	Dialogic.VAR.battleComment = (
+			current_character.characterName + " uses " +
+	 		action.displayName + " on " + target.characterName)
 	
 	if action.damage > 0:
 		target.take_damage(action.damage)
@@ -85,9 +109,6 @@ func battle_action(action : BattleAction, target : Character):
 	set_Dialogic_variables()
 
 func set_Dialogic_variables():
-	#Set Current Character
-	Dialogic.VAR.currentCharacter = current_character.characterName
-	
 	# Set Player Health
 	Dialogic.VAR.playerHealth = player_characters[0].health + player_characters[1].health
 	Dialogic.VAR.enemyHealth = enemies[0].health

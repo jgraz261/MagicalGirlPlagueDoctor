@@ -41,10 +41,10 @@ layout/default_style="res://style.tres"
 variables={
 "aylinEnergy": 0,
 "battleComment": "",
-"currentCharacter": "default",
+"currentCharacter": "",
 "enemyHealth": 0,
 "enemyIndex": 0,
-"mGirlIndex": "",
+"mGirlIndex": 0,
 "miaEnergy": 0,
 "playerHealth": 0,
 "takeAction": 0

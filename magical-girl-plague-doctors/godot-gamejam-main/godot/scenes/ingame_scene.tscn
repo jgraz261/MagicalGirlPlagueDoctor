@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=7 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://ovjegpk30m4h" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Script" uid="uid://cu3npowt4r1px" path="res://scenes/node_example.gd" id="3_a5686"]
 [ext_resource type="PackedScene" uid="uid://cc8u61lv1ji5s" path="res://scenes/battle_manager.tscn" id="6_gadrd"]
-[ext_resource type="Script" uid="uid://2t0rhe3k2hr6" path="res://battle_manager.gd" id="7_5jhce"]
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
@@ -29,6 +28,5 @@ visible = false
 
 [node name="battle_manager" parent="." instance=ExtResource("6_gadrd")]
 unique_name_in_owner = true
-script = ExtResource("7_5jhce")
 
 [editable path="battle_manager"]
