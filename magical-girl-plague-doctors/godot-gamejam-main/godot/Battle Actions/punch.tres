@@ -7,4 +7,5 @@ script = ExtResource("1_flq8a")
 displayName = "Punch"
 description = "Deal 5 damage"
 damage = 5
+energyCost = 20
 metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"

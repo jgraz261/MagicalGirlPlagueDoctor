@@ -38,7 +38,17 @@ layout/style_directory={
 }
 layout/style_list=["res://style.tres"]
 layout/default_style="res://style.tres"
-variables={}
+variables={
+"aylinEnergy": 0,
+"battleComment": "",
+"currentCharacter": "default",
+"enemyHealth": 0,
+"enemyIndex": 0,
+"mGirlIndex": "",
+"miaEnergy": 0,
+"playerHealth": 0,
+"takeAction": 0
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -72,9 +82,12 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+glossary/default_case_sensitive=true
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1280
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"

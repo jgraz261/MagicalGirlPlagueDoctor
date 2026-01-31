@@ -3,7 +3,38 @@ join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!
 join Mia leftmost [animation="Slide From Right" length="1.0"]
 join Aylin left [animation="Slide From Right" length="1.0"]
-[wait_input]
-leave Mia
-[wait_input]
-[signal]
+[wait time="1.0"]
+label Next Turn
+[signal arg="nextTurn"]
+
+label Update Numbers
+Alyin Energy\: {aylinEnergy}\
+Mia Energy\: {miaEnergy}\
+Party Health\: {playerHealth}
+label Round Start
+if {currentCharacter}  ==  "Aylin":
+	set {mGirlIndex} = 0
+	It's {currentCharacter}'s turn!\
+	What will {currentCharacter} do?
+elif  {currentCharacter}  ==  "Mia":
+	set {mGirlIndex} = 1
+	It's {currentCharacter}'s turn!\
+	What will {currentCharacter} do?
+else:
+	The enemy's turn!
+	[signal arg="enemy action"]
+	[wait time="1.0"]
+	<Empty Text Event>
+	jump End Turn
+label Magical Girl Actions
+- Punch
+	[signal arg="nextTurn"]
+	set {takeAction} = 0
+- Kick
+	set {takeAction} = 1
+[signal arg="mGirl action"]
+label End Turn
+{battleComment}
+[wait time="1.0"]
+[signal arg="nextTurn"]
+jump Next Turn

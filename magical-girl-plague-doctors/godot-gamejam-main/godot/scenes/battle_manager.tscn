@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc8u61lv1ji5s"]
+[gd_scene load_steps=9 format=3 uid="uid://cc8u61lv1ji5s"]
 
-[ext_resource type="Script" uid="uid://2t0rhe3k2hr6" path="res://battle_manager.gd" id="1_3jpuh"]
+[ext_resource type="Script" uid="uid://df5ihviot21hp" path="res://battle_manager_BACKUP.gd" id="1_wmbtu"]
 [ext_resource type="Script" uid="uid://i3boff7b8bcb" path="res://scenes/boot/godot/character.gd" id="2_05opc"]
 [ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="3_lhjl6"]
 [ext_resource type="Resource" uid="uid://csnccbrg8usn4" path="res://Battle Actions/cough.tres" id="4_h4tux"]
 [ext_resource type="Resource" uid="uid://c7ieevni1hqra" path="res://Battle Actions/punch.tres" id="4_wmbtu"]
+[ext_resource type="Resource" uid="uid://qu7we1bx4yg2" path="res://Battle Actions/kick.tres" id="5_mc2mu"]
 [ext_resource type="Resource" uid="uid://dcwy386m2b7fl" path="res://Battle Actions/ooze.tres" id="5_wmbtu"]
 [ext_resource type="Resource" uid="uid://ca3tkvp6hy5e4" path="res://Battle Actions/wheeze.tres" id="6_mc2mu"]
 
 [node name="battle_manager" type="Node" node_paths=PackedStringArray("player_characters", "enemies")]
-script = ExtResource("1_3jpuh")
+script = ExtResource("1_wmbtu")
 player_characters = [NodePath("Aylin"), NodePath("Mia")]
 enemies = [NodePath("Infected")]
 
@@ -17,16 +18,17 @@ enemies = [NodePath("Infected")]
 script = ExtResource("2_05opc")
 characterName = "Aylin"
 characterType = "mGirl"
-battleActions = Array[ExtResource("3_lhjl6")]([ExtResource("4_wmbtu")])
+battleActions = Array[ExtResource("3_lhjl6")]([ExtResource("4_wmbtu"), ExtResource("5_mc2mu")])
 
 [node name="Mia" type="Node" parent="."]
 script = ExtResource("2_05opc")
 characterName = "Mia"
 characterType = "mGirl"
-battleActions = Array[ExtResource("3_lhjl6")]([ExtResource("4_wmbtu")])
+battleActions = Array[ExtResource("3_lhjl6")]([ExtResource("4_wmbtu"), ExtResource("5_mc2mu")])
 
 [node name="Infected" type="Node" parent="."]
 script = ExtResource("2_05opc")
 characterName = "Infected"
 characterType = "enemy"
+energyGain = 0
 battleActions = Array[ExtResource("3_lhjl6")]([ExtResource("4_h4tux"), ExtResource("5_wmbtu"), ExtResource("6_mc2mu")])

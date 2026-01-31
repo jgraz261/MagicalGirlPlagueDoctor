@@ -9,6 +9,7 @@ var game_over : bool = false
 var player_win : bool = false
 
 func next_turn ():
+	set_Dialogic_variables()
 # Check for battle end conditions
 	if player_win:
 		print("Players Win!")
@@ -33,24 +34,33 @@ func next_turn ():
 	
 	# Regain energy and display battle action options
 	current_character.begin_turn()
-	set_Dialogic_variables()
-
-func m_girl_act(characterIndex : int, action : int):
-	battle_action(
-		player_characters[characterIndex].battleActions[action],
-		enemies[0]
-		)
-
-func enemy_act(enemyIndex : int):
-	# Wait a sec for realistic computery thinking time
-	var wait_time = randf_range(1.0, 2.0)
-	await get_tree().create_timer(wait_time).timeout
-	# Randomly choose Combat Actions for Enemy Characters
-	battle_action(
-		enemies[enemyIndex].battleActions[
-			randi_range(0,current_character.battleActions.size()-1)],
-			player_characters[randi_range(0,1)]
-		)
+	#Dialogic.VAR.currentCharacter = current_character.characterName
+	
+	if current_character.characterType == "mGirl":
+		
+		#await Dialogic.VAR.DialogicVariableEvent
+		print(actionChoice)
+		#enable player UI through Dialogic
+		#Get player input
+		battle_action ( current_character.battleActions[actionChoice], $Infected )
+		
+	else:
+		#disable player UI
+		# Wait a sec for realistic computery thinking time
+		var wait_time = randf_range(1.0, 2.0)
+		await get_tree().create_timer(wait_time).timeout
+		# Randomly choose Combat Actions for Enemy Characters
+		battle_action ( 
+			current_character.battleActions [
+				randi_range(0,current_character.battleActions.size()-1)],
+		 		player_characters[randi_range(0,1)
+				]
+			)
+		#Check for more enemies
+		#If all enemies have acted, end turn
+	await get_tree().create_timer(0.5).timeout
+	check_status(enemies, player_characters)
+	#next_turn()
 
 func check_status(opponents : Array[Character], players: Array[Character]):
 	
@@ -74,7 +84,7 @@ func check_status(opponents : Array[Character], players: Array[Character]):
 
 func battle_action(action : BattleAction, target : Character):
 	current_character.energy -= action.energyCost
-	Dialogic.VAR.battleComment=(current_character.characterName + " uses " + action.displayName + " on " + target.characterName)
+	print(current_character.characterName + " uses " + action.displayName + " on " + target.characterName)
 	
 	if action.damage > 0:
 		target.take_damage(action.damage)
@@ -85,9 +95,6 @@ func battle_action(action : BattleAction, target : Character):
 	set_Dialogic_variables()
 
 func set_Dialogic_variables():
-	#Set Current Character
-	Dialogic.VAR.currentCharacter = current_character.characterName
-	
 	# Set Player Health
 	Dialogic.VAR.playerHealth = player_characters[0].health + player_characters[1].health
 	Dialogic.VAR.enemyHealth = enemies[0].health
@@ -104,12 +111,9 @@ func set_Dialogic_variables():
 func _on_dialogic_signal(argument : String):
 	if argument == "nextTurn":
 		next_turn();
-	if argument == "mGirl action":
-		m_girl_act ( Dialogic.VAR.mGirlIndex, Dialogic.VAR.takeAction )
-	if argument == "enemy action":
-		enemy_act(Dialogic.VAR.enemyIndex)
-		#actionChoice = Dialogic.Actions.takeAction
+	if argument == "Action":
+		actionChoice = Dialogic.takeAction
 
-func _ready():
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+#func _ready():
+	#Dialogic.signal_event.connect(_on_dialogic_signal)
 	#next_turn()
