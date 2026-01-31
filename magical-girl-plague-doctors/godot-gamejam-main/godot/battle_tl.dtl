@@ -1,0 +1,64 @@
+[background arg="#360a46ff" fade="1.0" wait="true"]
+join foe rightmost [animation="Slide From Left" length="1.0"]
+A wild Unwell Customer appeared!
+join Mia leftmost [animation="Slide From Right" length="1.0"]
+join Aylin left [animation="Slide From Right" length="1.0"]
+label Next Turn
+if {playerWin} == true:
+	jump Win
+elif {gameOver} == true:
+	jump Game Over
+[signal arg="nextTurn"]
+[signal arg="checkCharacter"]
+
+[wait time="1.5"]
+Alyin Energy\: {aylinEnergy}\
+Mia Energy\: {miaEnergy}\
+Party Health\: {playerHealth}\
+Enemy Health\: {enemyHealth}
+if {currentCharacter}  ==  "Aylin":
+	It's {currentCharacter}'s turn!\
+	What will {currentCharacter} do?\
+	\
+	Alyin Energy\: {aylinEnergy}\
+	Mia Energy\: {miaEnergy}\
+	Party Health\: {playerHealth}\
+	Enemy Health\: {enemyHealth}
+	set {mGirlIndex} = 0
+elif {currentCharacter}  ==  "Mia":
+	set {mGirlIndex} = 1
+	It's {currentCharacter}'s turn!\
+	What will {currentCharacter} do?\
+	\
+	Alyin Energy\: {aylinEnergy}\
+	Mia Energy\: {miaEnergy}\
+	Party Health\: {playerHealth}\
+	Enemy Health\: {enemyHealth}
+elif {currentCharacter} == "Infected":
+	set {enemyIndex} = 0
+	The enemy's turn!
+	[wait time="0.5"]
+	[signal arg="enemy action"]
+label Magical Girl Actions
+if {currentCharacter} == "Aylin" or {currentCharacter} == "Mia":
+	- Punch (5 Dmg, -20 Energy)
+		set {takeAction} = 0
+	- Kick (15 Dmg, -40 Energy)
+		set {takeAction} = 1
+	[signal arg="mGirl action"]
+label End Turn
+{battleComment}
+[wait time="1.0"]
+[signal arg="endTurn"]
+jump Next Turn
+label Win
+leave foe [animation="Fade Out Down" length="1.5" wait="true"]
+Our heroes defeated their foe!
+[end_timeline]
+label Game Over
+leave Aylin [animation="Fade Out Down" length="1.5"]
+leave Mia [animation="Fade Out Down" length="1.5" wait="true"]
+Our heroes were defeated by their foe! Oh no!\
+\
+- Game Over -
+[end_timeline]
