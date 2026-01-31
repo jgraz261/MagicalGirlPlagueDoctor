@@ -11,49 +11,58 @@ var turnOrderToken
 var playerTurn : bool = true
 
 func next_turn ():
-# Check for battle end conditions
+	#Update variables
+	set_Dialogic_variables()
+	# Check for battle end conditions
 	if player_win:
 		print("Players Win!")
 		#Signal *Battle Win* to Dialogic
+		Dialogic.VAR.playerWin = player_win
 		return
 	elif game_over:
 		print("You got infected! Game Over!")
 		# Signal *Game Over* to Dialogic
+		Dialogic.VAR.gameOver = game_over
 		return
 	
 	if turnOrderToken == null:
 		turnOrderToken = 0
 	
 	if !playerTurn:
-		if turnOrderToken <= enemies.size()-1:
+		if turnOrderToken < enemies.size():
 			current_character = enemies[turnOrderToken]
+			Dialogic.VAR.currentCharacter = current_character.characterName
 			turnOrderToken += 1
 		else:
-			playerTurn = !playerTurn
+			playerTurn = true
 			turnOrderToken = 0
-	if playerTurn:
-		if turnOrderToken <= player_characters.size()-1:
 			current_character = player_characters[turnOrderToken]
 			turnOrderToken += 1
+			Dialogic.VAR.currentCharacter = current_character.characterName
+	elif playerTurn:
+		if turnOrderToken < player_characters.size():
+			current_character = player_characters[turnOrderToken]
+			Dialogic.VAR.currentCharacter = current_character.characterName
+			turnOrderToken += 1
 		else:
-			playerTurn = !playerTurn
+			playerTurn = false
 			turnOrderToken = 0
 			current_character = enemies[turnOrderToken]
-	# Clear any accidentally left open turn
-	#if current_character != null:
-		#current_character.end_turn()
-	# Set current character
-	#if current_character == null:
-		#current_character = player_characters[0]
-	#elif current_character == player_characters[0] :
-		#current_character = player_characters[1]
-	#elif current_character in enemies:
-		#current_character = enemies[0]
+			turnOrderToken += 1
+			Dialogic.VAR.currentCharacter = current_character.characterName
+			
+	#if playerTurn and current_character in player_characters:
+		#print ("Player Turn, mGirl Selected")
+	#elif !playerTurn and current_character in enemies:
+		#print ("Enemy Turn, Enemy Selected")
+	#else:
+		#print("Sumthin' ain't right")
 	#Set Current Character in Dialogic
-	Dialogic.VAR.currentCharacter = current_character.characterName
+	#Dialogic.VAR.currentCharacter = current_character.characterName
 	
 	# Regain energy and display battle action options
 	current_character.begin_turn()
+	#Update variables
 	set_Dialogic_variables()
 
 func m_girl_act(characterIndex : int, action : int):
@@ -63,9 +72,6 @@ func m_girl_act(characterIndex : int, action : int):
 		)
 
 func enemy_act(enemyIndex : int):
-	# Wait a sec for realistic computery thinking time
-	var wait_time = randf_range(1.0, 2.0)
-	await get_tree().create_timer(wait_time).timeout
 	# Randomly choose Combat Actions for Enemy Characters
 	battle_action(
 		enemies[enemyIndex].battleActions[
@@ -83,18 +89,19 @@ func check_status(opponents : Array[Character], players: Array[Character]):
 		opponentTotalHealth += opponent.health
 	if opponentTotalHealth <= 0:
 		player_win = true
-		return
+		#return
 	
 	for player in players:
-		#print(player.characterName + " (health): " + str(player.health))
 		playersTotalHealth += player.health
 	if playersTotalHealth <= 0:
 		game_over = true
-		return
+		
 	set_Dialogic_variables()
 
 func battle_action(action : BattleAction, target : Character):
-	print(current_character.characterName)
+	print(
+			current_character.characterName + " uses " +
+	 		action.displayName + " on " + target.characterName)
 	current_character.energy -= action.energyCost
 	Dialogic.VAR.battleComment = (
 			current_character.characterName + " uses " +
@@ -117,10 +124,9 @@ func set_Dialogic_variables():
 	Dialogic.VAR.aylinEnergy = player_characters[0].energy
 	Dialogic.VAR.miaEnergy = player_characters[1].energy
 	
-	#print("Health: " + str(Dialogic.VAR.playerHealth))
-	#print("Enemy Health: " + str(Dialogic.VAR.enemyHealth))
-	#print("Aylin Energy: " + str(Dialogic.VAR.aylinEnergy))
-	#print("Mia Energy: " + str(Dialogic.VAR.miaEnergy))
+	# Set win/loss conditions
+	Dialogic.VAR.playerWin = player_win
+	Dialogic.VAR.gameOver = game_over
 	
 func _on_dialogic_signal(argument : String):
 	if argument == "nextTurn":
@@ -130,6 +136,11 @@ func _on_dialogic_signal(argument : String):
 	if argument == "enemy action":
 		enemy_act(Dialogic.VAR.enemyIndex)
 		#actionChoice = Dialogic.Actions.takeAction
+	if argument == "endTurn":
+		check_status(enemies, player_characters)
+	if argument == "checkCharacter":
+		Dialogic.VAR.currentCharacter = current_character.characterName
+		print(Dialogic.VAR.currentCharacter)
 
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)

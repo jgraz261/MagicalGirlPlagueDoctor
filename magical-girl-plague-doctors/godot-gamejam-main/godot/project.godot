@@ -44,9 +44,11 @@ variables={
 "currentCharacter": "",
 "enemyHealth": 0,
 "enemyIndex": 0,
+"gameOver": false,
 "mGirlIndex": 0,
 "miaEnergy": 0,
 "playerHealth": 0,
+"playerWin": false,
 "takeAction": 0
 }
 extensions_folder="res://addons/dialogic_additions"

@@ -21,7 +21,7 @@ func begin_turn():
 	#Enable UI options
 	#print("** " + characterName +"'s turn")
 	recharge_energy()
-	#Dialogic.VAR.currentCharacter = characterName
+	Dialogic.VAR.currentCharacter = characterName
 
 func end_turn():
 	#Disable UI options
