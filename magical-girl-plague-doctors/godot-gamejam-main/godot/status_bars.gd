@@ -14,7 +14,7 @@ func _ready():
 	
 func update_ui():
 	if entity.name != "Infected":
-		health_bar.value = float(Dialogic.VAR.playerHealth) / (entity.HEALTH_DEFAULT * 2) * 100
+		health_bar.value = float(Dialogic.VAR.enemyHealth) / (entity.HEALTH_DEFAULT * 2) * 100
 		energy_bar.value = float(entity.energy) / 100 * 100
 	else:
 		health_bar.value = float(Dialogic.VAR.playerHealth) / (entity.HEALTH_DEFAULT * 2) * 100
@@ -24,7 +24,11 @@ func _on_dialogic_signal(argument:String):
 		#update_ui()
 		visible = true
 		print("battle start")
-	if argument == "nextTurn":
+	if argument == "checkCharacter":
+		update_ui()
+	if argument == "endTurn":
+		update_ui()
+	if argument == "updateUI":
 		update_ui()
 		#next_turn();
 	#if argument == "nextTurn":

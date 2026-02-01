@@ -13,29 +13,19 @@ elif {gameOver} == true:
 [signal arg="nextTurn"]
 [signal arg="checkCharacter"]
 
-[wait time="1.5"]
-Alyin Energy\: {aylinEnergy}\
-Mia Energy\: {miaEnergy}\
-Party Health\: {playerHealth}\
-Enemy Health\: {enemyHealth}
+# #[wait time="1.5"]
+# #Alyin Energy\: {aylinEnergy}\
+# #Mia Energy\: {miaEnergy}\
+# #Party Health\: {playerHealth}\
+# #Enemy Health\: {enemyHealth}
 if {currentCharacter}  ==  "Aylin":
-	It's {currentCharacter}'s turn!\
-	What will {currentCharacter} do?\
-	\
-	Alyin Energy\: {aylinEnergy}\
-	Mia Energy\: {miaEnergy}\
-	Party Health\: {playerHealth}\
-	Enemy Health\: {enemyHealth}
+	It's {currentCharacter}'s turn!   ...   What will {currentCharacter} do?\
+	((   Alyin ⚡\: {aylinEnergy}   )) ((   Mia ⚡\: {miaEnergy}   )) ((   Health ❤️\: {playerHealth}   ))
 	set {mGirlIndex} = 0
 elif {currentCharacter}  ==  "Mia":
 	set {mGirlIndex} = 1
-	It's {currentCharacter}'s turn!\
-	What will {currentCharacter} do?\
-	\
-	Alyin Energy\: {aylinEnergy}\
-	Mia Energy\: {miaEnergy}\
-	Party Health\: {playerHealth}\
-	Enemy Health\: {enemyHealth}
+	It's {currentCharacter}'s turn!   ...   What will {currentCharacter} do?\
+	((   Alyin ⚡\: {aylinEnergy}   )) ((   Mia ⚡\: {miaEnergy}   )) ((   Health ❤️\: {playerHealth}   ))
 elif {currentCharacter} == "Infected":
 	set {enemyIndex} = 0
 	The enemy's turn!
@@ -50,7 +40,7 @@ if {currentCharacter} == "Aylin":
 		set {targetPlayer} = true
 		set {targetIndex} = {mGirlIndex}
 		jump Skip Target
-	- 🔽 Briar Thicket Filtration ( 25⚡) | [if {aylinEnergy} >= 25.0]
+	- 🔽 Briar Thicket Filtration ( 25⚡) | [if {aylinEnergy} >= 25]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 1
 		else:
@@ -81,25 +71,25 @@ elif {currentCharacter} == "Mia":
 		set {targetPlayer} = true
 		set {targetIndex} = {mGirlIndex}
 		jump Skip Target
-	- ⚔️ Breath of Cleansing Gust ( 20⚡) | [if {aylinEnergy} >= 20]
-		if {aylinEnergy} >= 20:
+	- ⚔️ Breath of Cleansing Gust ( 20⚡) | [if {miaEnergy} >= 20]
+		if {miaEnergy} >= 20:
 			set {takeAction} = 1
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡) | [if {aylinEnergy} >= 45]
-		if {aylinEnergy} >= 45:
+	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡) | [if {miaEnergy} >= 45]
+		if {miaEnergy} >= 45:
 			set {takeAction} = 2
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- 🔼 Lustrous Bloom of Wellness ( 40⚡)
+	- 🔼 Lustrous Bloom of Wellness ( 40⚡) | [if {miaEnergy} >= 40]
 		if {miaEnergy} >= 40:
 			set {takeAction} = 3
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡)
+	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡) | [if {miaEnergy} >= 80]
 		if {miaEnergy} >= 80:
 			set {takeAction} = 4
 		else:
