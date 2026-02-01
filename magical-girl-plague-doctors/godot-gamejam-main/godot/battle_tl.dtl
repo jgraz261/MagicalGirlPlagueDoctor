@@ -1,3 +1,4 @@
+[signal arg="battle_start"]
 [background arg="#360a46ff" fade="1.0" wait="true"]
 join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!

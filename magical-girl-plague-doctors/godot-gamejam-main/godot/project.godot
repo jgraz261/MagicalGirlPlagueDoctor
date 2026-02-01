@@ -87,6 +87,7 @@ audio/channel_defaults={
 }
 }
 glossary/default_case_sensitive=true
+audio/type_sound_bus="Sound"
 
 [display]
 
