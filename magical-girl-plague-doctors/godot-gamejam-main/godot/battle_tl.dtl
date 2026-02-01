@@ -1,5 +1,5 @@
 audio music "res://audio/Anime_Battle.ogg"
-[background arg="#360a46ff" fade="1.0" wait="true"]
+[background arg="res://art/BG/GGJ_PlagueGirls_BGInterior.png" fade="0.5" wait="true"]
 join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!
 join Mia (transformed) left [animation="Slide From Right" length="1.0"]
@@ -12,12 +12,6 @@ elif {gameOver} == true:
 	jump Game Over
 [signal arg="nextTurn"]
 [signal arg="checkCharacter"]
-
-# #[wait time="1.5"]
-# #Alyin Energy\: {aylinEnergy}\
-# #Mia Energy\: {miaEnergy}\
-# #Party Health\: {playerHealth}\
-# #Enemy Health\: {enemyHealth}
 if {currentCharacter}  ==  "Aylin":
 	It's {currentCharacter}'s turn!   ...   What will {currentCharacter} do?\
 	((   Alyin ⚡\: {aylinEnergy}   )) ((   Mia ⚡\: {miaEnergy}   )) ((   Health ❤️\: {playerHealth}   ))

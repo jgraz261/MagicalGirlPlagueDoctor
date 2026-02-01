@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_sb0sk")
 displayName = "Ooze"
-description = "Deal 30 Damage"
-damage = 30
+description = "Deal 45 Damage"
+damage = 45
 metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"

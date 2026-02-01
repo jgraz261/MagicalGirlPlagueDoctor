@@ -1,9 +1,9 @@
 audio music "res://audio/theme.ogg" [volume="-2.0"]
-[background arg="res://art/BG/WavyBg.png" fade="0.0"]
+[background arg="res://art/BG/WavyBg.png" fade="0.6" transition="Swipe Right To Left" wait="true"]
 [wait time="1.0"]
 join Aylin (default) left [animation="Slide From Left"]
-join Mia right [animation="Slide From Right" mirrored="true"]
-set {tCounter} = 7
+join Mia (default) right [animation="Slide From Right" mirrored="true"]
+set {tCounter} = 3.0
 [wait time="0.5"]
 audio "res://audio/transformation-001.wav" [volume="3.0"]
 label tLoop
@@ -14,7 +14,7 @@ update Mia (default) [animation="Tada" length="0.2" wait="true"]
 update Aylin (default) [animation="Tada" length="0.2" wait="true"]
 if {tCounter} > 0:
 	jump tLoop
-set {tCounter} = 7
+set {tCounter} = 5.0
 audio "res://audio/transformation-001.wav" [volume="3.0"]
 audio "res://audio/transformation-002.wav" [volume="4.0"]
 label tLoop2
@@ -25,7 +25,7 @@ update Mia (transformed_wht) [animation="Tada" length="0.1" wait="true"]
 update Aylin (transformed_wht) [animation="Tada" length="0.1" wait="true"]
 if {tCounter} > 0:
 	jump tLoop2
-set {tCounter} = 7
+set {tCounter} = 3.0
 audio "res://audio/transformation-001.wav" [volume="3.0"]
 audio "res://audio/transformation-002.wav" [volume="4.0"]
 audio "res://audio/transformation-003.wav" [volume="5.0"]
@@ -42,5 +42,6 @@ audio "res://audio/transformation-002.wav" [volume="4.0"]
 audio "res://audio/transformation-003.wav" [volume="5.0"]
 update Mia (transformed) [animation="Tada" length="0.2" wait="true"]
 update Aylin (transformed) [animation="Tada" length="0.2" wait="true"]
-[wait_input]
+Mia (transformed): By the power of our magical masks...
+Aylin (transformed): We are the Celestial Bloom Force!!
 jump battle_tl/
