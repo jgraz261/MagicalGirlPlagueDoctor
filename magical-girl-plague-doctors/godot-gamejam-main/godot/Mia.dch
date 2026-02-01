@@ -19,9 +19,9 @@
 &"portraits": {
 "New portrait": {
 "export_overrides": {
-"image": "\"res://addons/dialogic/Example Assets/portraits/Antonio/pl5.png\""
+"image": "\"res://addons/dialogic/Example Assets/portraits/Antonio/pl5 scoff.png\""
 },
-"mirror": true,
+"mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""
