@@ -67,6 +67,6 @@ battleActions = Array[ExtResource("7_4d8mm")]([ExtResource("12_l64ye"), ExtResou
 battleActions = Array[ExtResource("7_4d8mm")]([ExtResource("12_l64ye"), ExtResource("13_rohyw"), ExtResource("14_hr6f0"), ExtResource("15_6ywyt"), ExtResource("16_fq0u6")])
 
 [node name="Infected" parent="battle_manager" index="2"]
-health = 200
+health = 150
 
 [editable path="battle_manager"]

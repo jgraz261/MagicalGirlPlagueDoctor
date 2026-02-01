@@ -93,14 +93,14 @@ elif {currentCharacter} == "Mia":
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- 🔼 Lustrous Bloom of Wellness ( 40⚡) | [if {aylinEnergy} >= 40]
-		sif {aylinEnergy} >= 40\:
-		set {takeAction} = 3
+	- 🔼 Lustrous Bloom of Wellness ( 40⚡)
+		if {miaEnergy} >= 40:
+			set {takeAction} = 3
 		else:
-		Not enough energy!
-		jump Mia Repick
-	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡) | [if {aylinEnergy} >= 80]
-		if {aylinEnergy} >= 80:
+			Not enough energy!
+			jump Mia Repick
+	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡)
+		if {miaEnergy} >= 80:
 			set {takeAction} = 4
 		else:
 			Not enough energy!
@@ -130,7 +130,8 @@ label End Turn
 jump Next Turn
 label Win
 leave foe [animation="Fade Out Down" length="1.5" wait="true"]
-Our heroes defeated their foe!
+Our heroes defeated their foe! Great job!
+[clear time="1.0"]
 [end_timeline]
 label Game Over
 leave Aylin [animation="Fade Out Down" length="1.5"]
@@ -138,4 +139,5 @@ leave Mia [animation="Fade Out Down" length="1.5" wait="true"]
 Our heroes were defeated by their foe! Oh no!\
 \
 - Game Over -
-[end_timeline]
+[clear time="1.5"]
+jump intro/
