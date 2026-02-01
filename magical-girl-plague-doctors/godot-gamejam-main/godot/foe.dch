@@ -19,9 +19,9 @@
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://addons/dialogic/Example Assets/portraits/Antonio/pl5 hate.png\""
+"image": "\"res://art/GGJ_PlagueGirls_Zombie1.png\""
 },
-"mirror": false,
+"mirror": true,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""

@@ -19,7 +19,16 @@
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://art/GGJ_PlagueGirls_CarnationH.png\""
+"image": "\"res://art/GGJ_PlagueGirls_CarnationH_V2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"human_wht": {
+"export_overrides": {
+"image": "\"res://art/GGJ_PlagueGirls_CarnationH_V2_Wht.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
@@ -28,7 +37,16 @@
 },
 "transformed": {
 "export_overrides": {
-"image": "\"res://art/GGJ_PlagueGirls_CarnationT.png\""
+"image": "\"res://art/GGJ_PlagueGirls_CarnationT_V3.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"transformed_wht": {
+"export_overrides": {
+"image": "\"res://art/GGJ_PlagueGirls_CarnationT_V3_Wht.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

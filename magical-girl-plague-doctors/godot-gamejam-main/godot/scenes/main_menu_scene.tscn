@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=12 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" uid="uid://k5f271qgai2d" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="2_nl5i6"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://cuxgs7fo2f5pm" path="res://audio/theme.ogg" id="4_8fdqi"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
 [ext_resource type="Theme" uid="uid://b77dt85r33o3n" path="res://ui/main_menu.tres" id="5_6ad1t"]
+[ext_resource type="Texture2D" uid="uid://d1ckiy368hjr6" path="res://art/GGJ_PlagueGirls_CarnationT_V3_Wht.png" id="5_pw2k5"]
+[ext_resource type="Texture2D" uid="uid://gtb2hpre6jos" path="res://art/GGJ_PlagueGirls_RoseT_V2_Wht.png" id="6_pe0bh"]
 [ext_resource type="FontFile" uid="uid://b71f6h3bxkdu0" path="res://fonts/PatuaOne-Regular.ttf" id="6_wbyn4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
@@ -31,6 +33,20 @@ parameters/looping = true
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(1, 0.76, 0.88400006, 1)
+
+[node name="Mia_Sprite2D" type="Sprite2D" parent="UI"]
+modulate = Color(0.654902, 0.80784315, 0.6, 1)
+position = Vector2(568.00006, 0)
+scale = Vector2(0.66358024, 0.6635801)
+texture = ExtResource("5_pw2k5")
+centered = false
+
+[node name="Aylin_Sprite2D" type="Sprite2D" parent="UI"]
+modulate = Color(0.9372549, 0.5686275, 0.627451, 1)
+position = Vector2(293, 0)
+scale = Vector2(0.6651234, 0.66512334)
+texture = ExtResource("6_pe0bh")
+centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="UI"]
 anchors_preset = 7
