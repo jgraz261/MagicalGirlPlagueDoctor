@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=17 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://ovjegpk30m4h" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -6,6 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Script" uid="uid://cu3npowt4r1px" path="res://scenes/node_example.gd" id="3_a5686"]
 [ext_resource type="PackedScene" uid="uid://cc8u61lv1ji5s" path="res://scenes/battle_manager.tscn" id="6_gadrd"]
+[ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="7_4d8mm"]
+[ext_resource type="Resource" uid="uid://bhm7obhxxqjtn" path="res://Battle Actions/rose_bThicket.tres" id="8_th7mp"]
+[ext_resource type="Resource" uid="uid://b15f5qv64y7or" path="res://Battle Actions/rose_ePetal.tres" id="9_q7kwb"]
+[ext_resource type="Resource" uid="uid://v0y1lds8mau7" path="res://Battle Actions/rose_iAntiox.tres" id="10_o7ls4"]
+[ext_resource type="Resource" uid="uid://qu7we1bx4yg2" path="res://Battle Actions/rose_rBeam.tres" id="11_hysgw"]
+[ext_resource type="Resource" uid="uid://calc2akojd0ks" path="res://Battle Actions/defend.tres" id="12_l64ye"]
+[ext_resource type="Resource" uid="uid://c51a4jk7panci" path="res://Battle Actions/crntn_cGust.tres" id="13_rohyw"]
+[ext_resource type="Resource" uid="uid://y73p6krdjclq" path="res://Battle Actions/crntn_hSoup.tres" id="14_hr6f0"]
+[ext_resource type="Resource" uid="uid://dt2et0qb02awq" path="res://Battle Actions/crntn_lBloom.tres" id="15_6ywyt"]
+[ext_resource type="Resource" uid="uid://dc00vkxg2slse" path="res://Battle Actions/crntn_hRemedy.tres" id="16_fq0u6"]
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
@@ -28,5 +38,14 @@ visible = false
 
 [node name="battle_manager" parent="." instance=ExtResource("6_gadrd")]
 unique_name_in_owner = true
+
+[node name="Aylin" parent="battle_manager" index="0"]
+battleActions = Array[ExtResource("7_4d8mm")]([ExtResource("12_l64ye"), ExtResource("8_th7mp"), ExtResource("9_q7kwb"), ExtResource("11_hysgw"), ExtResource("10_o7ls4")])
+
+[node name="Mia" parent="battle_manager" index="1"]
+battleActions = Array[ExtResource("7_4d8mm")]([ExtResource("12_l64ye"), ExtResource("13_rohyw"), ExtResource("14_hr6f0"), ExtResource("15_6ywyt"), ExtResource("16_fq0u6")])
+
+[node name="Infected" parent="battle_manager" index="2"]
+health = 200
 
 [editable path="battle_manager"]

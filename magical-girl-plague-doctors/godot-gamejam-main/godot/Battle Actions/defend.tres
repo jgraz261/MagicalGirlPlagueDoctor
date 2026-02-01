@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://calc2akojd0ks"]
+
+[ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="1_hx4ss"]
+
+[resource]
+script = ExtResource("1_hx4ss")
+displayName = "Defend"
+description = "Reduce incoming damage"
+defMod = 0.5
+metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"
