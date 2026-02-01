@@ -1,5 +1,5 @@
 audio music "res://audio/Anime_Battle.ogg"
-[background arg="res://art/BG/GGJ_PlagueGirls_BGExterior.png" fade="0.5" wait="true"]
+[background arg="res://art/BG/GGJ_PlagueGirls_BGInterior.png" fade="0.5" wait="true"]
 join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!
 join Mia (transformed) left [animation="Slide From Right" length="1.0"]

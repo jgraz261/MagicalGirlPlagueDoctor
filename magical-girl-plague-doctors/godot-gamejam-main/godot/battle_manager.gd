@@ -114,6 +114,8 @@ func battle_action(action : BattleAction, target : Character):
 		textNotice = textNotice + target.characterName + "'s power went down! "
 	if action.energyMod > 1.0:
 		textNotice = textNotice + target.characterName + "'s energy recovery went up! "
+	if action.energyMod < 1.0:
+		textNotice = textNotice + target.characterName + "'s energy recovery went down! "
 	
 	Dialogic.VAR.battleComment = (
 			current_character.characterName + " uses " +
