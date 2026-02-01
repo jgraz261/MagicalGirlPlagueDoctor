@@ -1,5 +1,6 @@
 extends Node
 
+@export var restart_scene:PackedScene
 @export var player_characters : Array[Character]
 @export var enemies : Array[Character]
 var current_character : Character
@@ -156,6 +157,10 @@ func _on_dialogic_signal(argument : String):
 	if argument == "checkCharacter":
 		Dialogic.VAR.currentCharacter = current_character.characterName
 		#print(Dialogic.VAR.currentCharacter)
+	if argument == "restart_game":
+		%FadeOverlay.fade_out()
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://scenes/main_menu_scene.tscn")
 
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
