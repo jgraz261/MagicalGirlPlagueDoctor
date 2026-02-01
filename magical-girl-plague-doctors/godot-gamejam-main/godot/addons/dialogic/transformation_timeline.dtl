@@ -43,3 +43,4 @@ audio "res://audio/transformation-003.wav" [volume="5.0"]
 update Mia (transformed) [animation="Tada" length="0.2" wait="true"]
 update Aylin (transformed) [animation="Tada" length="0.2" wait="true"]
 [wait_input]
+jump battle_tl/
