@@ -1,9 +1,9 @@
 audio music "res://audio/Anime_Battle.ogg"
 [background arg="#360a46ff" fade="1.0" wait="true"]
-join Mia (transformed) left [animation="Slide From Right" length="1.0"]
-join Aylin (transformed) leftmost [animation="Slide From Right" length="1.0"]
 join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!
+join Mia (transformed) left [animation="Slide From Right" length="1.0"]
+join Aylin (transformed) leftmost [animation="Slide From Right" length="1.0"]
 [signal arg="battle_start"]
 label Next Turn
 if {playerWin} == true:
@@ -31,7 +31,6 @@ elif {currentCharacter} == "Infected":
 	The enemy's turn!
 	[wait time="0.5"]
 	[signal arg="enemy action"]
-	update foe [animation="Shake X"]
 	jump End Turn
 label Magical Girl Actions
 if {currentCharacter} == "Aylin":
@@ -44,24 +43,28 @@ if {currentCharacter} == "Aylin":
 	- 🔽 Briar Thicket Filtration ( 25⚡) | [if {aylinEnergy} >= 25]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 1
+			audio "res://audio/VoLines/briar thicket filtration-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
 	- 🛡️ Electrostatic Petal Seal ( 25⚡) | [if {aylinEnergy} >= 25]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 2
+			audio "res://audio/VoLines/electrostatic petal-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
 	- ⚔️ Radiant Inoculation Beam ( 50⚡) | [if {aylinEnergy} >= 50]
 		if {aylinEnergy} >= 50:
 			set {takeAction} = 3
+			audio "res://audio/VoLines/radiant innoculation beam-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
 	- ⚔️ Incandescent Antioxidant ( 80⚡) | [if {aylinEnergy} >= 80]
 		if {aylinEnergy} >= 80:
 			set {takeAction} = 4
+			audio "res://audio/VoLines/incandescent antioxidant-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
@@ -75,24 +78,28 @@ elif {currentCharacter} == "Mia":
 	- ⚔️ Breath of Cleansing Gust ( 20⚡) | [if {miaEnergy} >= 20]
 		if {miaEnergy} >= 20:
 			set {takeAction} = 1
+			audio "res://audio/VoLines/breath of cleansing gust-003.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
 	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡) | [if {miaEnergy} >= 45]
 		if {miaEnergy} >= 45:
 			set {takeAction} = 2
+			audio "res://audio/VoLines/sparkling hot soup-002.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
 	- 🔼 Lustrous Bloom of Wellness ( 40⚡) | [if {miaEnergy} >= 40]
 		if {miaEnergy} >= 40:
 			set {takeAction} = 3
+			audio "res://audio/VoLines/lustrous bloom of wellness-001.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
 	- ❤️‍🩹 Resplendent Flower Burst ( 80⚡) | [if {miaEnergy} >= 80]
 		if {miaEnergy} >= 80:
 			set {takeAction} = 4
+			audio "res://audio/VoLines/resplendent flower burst-001.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
@@ -108,47 +115,28 @@ Target?
 	set {targetIndex} = 1
 - Back
 	[clear time="0.5" step="false" portraits="false" music="false" background="false" positions="false" style="false"]
+	if {currentCharacter} == "Aylin":
+		jump Aylin Repick
+	elif {currentCharacter} == "Mia":
+		jump Mia Repick
 label Skip Target
 [signal arg="mGirl action"]
 [signal arg="updateUI"]
 [wait time="1.0"]
 label End Turn
-if {currentCharacter} == "Aylin":
-	update Aylin [animation="Shake X"]
-	if {takeAction} == 1:
-		audio "res://audio/VoLines/briar thicket filtration-001.wav"
-	if {takeAction} == 2:
-		audio "res://audio/VoLines/electrostatic petal-001.wav"
-	if {takeAction} == 3:
-		audio "res://audio/VoLines/radiant innoculation beam-001.wav"
-	if {takeAction} == 4:
-		audio "res://audio/VoLines/incandescent antioxidant-001.wav"
-elif {currentCharacter} == "Mia":
-	update Mia [animation="Shake X"]
-	if {takeAction} == 1:
-		audio "res://audio/VoLines/breath of cleansing gust-003.wav"
-	if {takeAction} == 2:
-		audio "res://audio/VoLines/sparkling hot soup-002.wav"
-	if {takeAction} == 3:
-		audio "res://audio/VoLines/lustrous bloom of wellness-001.wav"
-	if {takeAction} == 4:
-		audio "res://audio/VoLines/resplendent flower burst-001.wav"
 {battleComment}
 [signal arg="endTurn"]
 jump Next Turn
-[end_timeline]
 label Win
 leave foe [animation="Fade Out Down" length="1.5" wait="true"]
-jump victory/
+Our heroes defeated their foe! Great job!
+[clear time="1.0"]
 [end_timeline]
 label Game Over
 leave Aylin [animation="Fade Out Down" length="1.5"]
 leave Mia [animation="Fade Out Down" length="1.5" wait="true"]
-[signal arg="hide_health"]
 Our heroes were defeated by their foe! Oh no!\
 \
 - Game Over -
-[signal arg=""restart_game"]
-[end_timeline]
 [clear time="1.5"]
 jump intro/

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc8u61lv1ji5s"]
+[gd_scene load_steps=10 format=3 uid="uid://cc8u61lv1ji5s"]
 
 [ext_resource type="Script" uid="uid://2t0rhe3k2hr6" path="res://battle_manager.gd" id="1_wmbtu"]
 [ext_resource type="Script" uid="uid://i3boff7b8bcb" path="res://scenes/boot/godot/character.gd" id="2_05opc"]
+[ext_resource type="PackedScene" uid="uid://ehrvsjvp61gu" path="res://scenes/boot/bootsplash_scene.tscn" id="2_mc2mu"]
 [ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="3_lhjl6"]
 [ext_resource type="Resource" uid="uid://csnccbrg8usn4" path="res://Battle Actions/cough.tres" id="4_h4tux"]
 [ext_resource type="Resource" uid="uid://c7ieevni1hqra" path="res://Battle Actions/punch.tres" id="4_wmbtu"]
@@ -11,6 +12,7 @@
 
 [node name="battle_manager" type="Node" node_paths=PackedStringArray("player_characters", "enemies")]
 script = ExtResource("1_wmbtu")
+restart_scene = ExtResource("2_mc2mu")
 player_characters = [NodePath("Aylin"), NodePath("Mia")]
 enemies = [NodePath("Infected")]
 

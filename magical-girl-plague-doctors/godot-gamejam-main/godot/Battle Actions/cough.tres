@@ -6,5 +6,5 @@
 script = ExtResource("1_67vmk")
 displayName = "Cough"
 description = "Deal 10 damage"
-damage = 10
+damage = 15
 metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"
