@@ -1,9 +1,15 @@
 audio music "res://audio/CartoonTango.ogg"
 [style name="style"]
+[background arg="res://art/BG/AncientEvilAwakens.jpg" fade="1.0" wait="true"]
 An ancient evil has awakened. For centuries, Loviatar, the Goddess of Pestilence has been sealed by the bonds of human solidarity and community action.
+[background arg="res://art/BG/RoamsFree.jpg" fade="1.0" wait="true"]
 However, this social fabric has been threatened and the God of Pestilence roams free once more. But hope is not lost,
+[background arg="res://art/BG/ForestAncestors.jpg" fade="1.0" wait="true"]
 the Forest ancestor spirits have united to awaken the Celestial Bloom Force\: fighters that harness the power of generations of healers to bend time and space.
+join Aylin (transformed_wht) left
+join Mia (transformed_wht) right
 Can our heroes restore community care and peace once more?
+[clear time="1.5"]
 audio music -
 [wait time="2.0"]
 <Empty Text Event>

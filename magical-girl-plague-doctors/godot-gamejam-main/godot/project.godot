@@ -31,7 +31,8 @@ directories/dtl_directory={
 "battle_original": "res://battle_original.dtl",
 "battle_tl": "res://battle_tl.dtl",
 "intro": "res://intro.dtl",
-"lore_timeline": "res://addons/dialogic/lore_timeline.dtl"
+"lore_timeline": "res://addons/dialogic/lore_timeline.dtl",
+"transformation_timeline": "res://addons/dialogic/transformation_timeline.dtl"
 }
 layout/style_directory={
 "": "res://style.tres",
@@ -50,6 +51,7 @@ variables={
 "miaEnergy": 0,
 "playerHealth": 0,
 "playerWin": false,
+"tCounter": 0,
 "takeAction": 0,
 "targetIndex": 0,
 "targetPlayer": false
