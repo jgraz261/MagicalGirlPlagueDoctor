@@ -19,11 +19,27 @@ func next_turn ():
 		print("Players Win!")
 		#Signal *Battle Win* to Dialogic
 		Dialogic.VAR.playerWin = player_win
+		
+		player_win = false
+		$Aylin.health = $Aylin.HEALTH_DEFAULT
+		$Aylin.energy = $Aylin.ENERGY_DEFAULT
+		$Mia.health = $Mia.HEALTH_DEFAULT
+		$Mia.energy = $Mia.ENERGY_DEFAULT
+		$Infected.health = $Infected.HEALTH_DEFAULT
+		$Infected.energy = $Infected.ENERGY_DEFAULT
 		return
 	elif game_over:
 		print("You got infected! Game Over!")
 		# Signal *Game Over* to Dialogic
 		Dialogic.VAR.gameOver = game_over
+		
+		game_over = false
+		$Aylin.health = $Aylin.HEALTH_DEFAULT
+		$Aylin.energy = $Aylin.ENERGY_DEFAULT
+		$Mia.health = $Mia.HEALTH_DEFAULT
+		$Mia.energy = $Mia.ENERGY_DEFAULT
+		$Infected.health = $Infected.HEALTH_DEFAULT
+		$Infected.energy = $Infected.ENERGY_DEFAULT
 		return
 	
 	if turnOrderToken == null:
