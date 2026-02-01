@@ -93,7 +93,7 @@ func battle_action(action : BattleAction, target : Character):
 	#print(
 			#current_character.characterName + " uses " +
 	 		#action.displayName + " on " + target.characterName)
-	#current_character.energy -= action.energyCost
+	current_character.energy -= action.energyCost
 	Dialogic.VAR.battleComment = (
 			current_character.characterName + " uses " +
 	 		action.displayName + " on " + target.characterName)
@@ -138,7 +138,7 @@ func _on_dialogic_signal(argument : String):
 		check_status(enemies, player_characters)
 	if argument == "checkCharacter":
 		Dialogic.VAR.currentCharacter = current_character.characterName
-		print(Dialogic.VAR.currentCharacter)
+		#print(Dialogic.VAR.currentCharacter)
 
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)

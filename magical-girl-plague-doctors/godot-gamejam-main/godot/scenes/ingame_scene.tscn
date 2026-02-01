@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=18 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://ovjegpk30m4h" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Script" uid="uid://cu3npowt4r1px" path="res://scenes/node_example.gd" id="3_a5686"]
 [ext_resource type="PackedScene" uid="uid://cc8u61lv1ji5s" path="res://scenes/battle_manager.tscn" id="6_gadrd"]
-[ext_resource type="PackedScene" uid="uid://dv44eg8ob8nw1" path="res://scenes/status_bars.tscn" id="7_5jhce"]
 [ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="7_4d8mm"]
+[ext_resource type="PackedScene" uid="uid://dv44eg8ob8nw1" path="res://scenes/status_bars.tscn" id="7_5jhce"]
 [ext_resource type="Resource" uid="uid://bhm7obhxxqjtn" path="res://Battle Actions/rose_bThicket.tres" id="8_th7mp"]
 [ext_resource type="Resource" uid="uid://b15f5qv64y7or" path="res://Battle Actions/rose_ePetal.tres" id="9_q7kwb"]
 [ext_resource type="Resource" uid="uid://v0y1lds8mau7" path="res://Battle Actions/rose_iAntiox.tres" id="10_o7ls4"]
@@ -67,6 +67,6 @@ battleActions = Array[ExtResource("7_4d8mm")]([ExtResource("12_l64ye"), ExtResou
 battleActions = Array[ExtResource("7_4d8mm")]([ExtResource("12_l64ye"), ExtResource("13_rohyw"), ExtResource("14_hr6f0"), ExtResource("15_6ywyt"), ExtResource("16_fq0u6")])
 
 [node name="Infected" parent="battle_manager" index="2"]
-health = 200
+health = 150
 
 [editable path="battle_manager"]
