@@ -40,7 +40,7 @@ overrides = {
 script = ExtResource("2_f5okj")
 scene = ExtResource("6_i734w")
 overrides = {
-"boxes_min_size": "Vector2(150, 150)",
+"boxes_min_size": "Vector2(150, 50)",
 "boxes_offset": "Vector2(0, 300)",
 "text_color_hovered": "Color(0.7109375, 0.31844077, 0.69867194, 1)",
 "text_color_pressed": "Color(0.28224257, 0.17887321, 0.42499077, 1)",
@@ -59,4 +59,4 @@ layer_info = {
 "13": SubResource("Resource_de0jg"),
 "15": SubResource("Resource_q1onl")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = "15"
