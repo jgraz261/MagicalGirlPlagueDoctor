@@ -1,9 +1,10 @@
-[signal arg="battle_start"]
+audio music "res://audio/Anime_Battle.ogg"
 [background arg="#360a46ff" fade="1.0" wait="true"]
 join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!
 join Mia leftmost [animation="Slide From Right" length="1.0"]
 join Aylin left [animation="Slide From Right" length="1.0"]
+[signal arg="battle_start"]
 label Next Turn
 if {playerWin} == true:
 	jump Win
@@ -49,25 +50,25 @@ if {currentCharacter} == "Aylin":
 		set {targetPlayer} = true
 		set {targetIndex} = {mGirlIndex}
 		jump Skip Target
-	- 🔽 Briar Thicket Filtration ( 25⚡)
+	- 🔽 Briar Thicket Filtration ( 25⚡) | [if {aylinEnergy} >= 25.0]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 1
 		else:
 			Not enough energy!
 			jump Aylin Repick
-	- 🛡️ Electrostatic Petal Seal ( 25⚡)
+	- 🛡️ Electrostatic Petal Seal ( 25⚡) | [if {aylinEnergy} >= 25]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 2
 		else:
 			Not enough energy!
 			jump Aylin Repick
-	- ⚔️ Radiant Inoculation Beam ( 50⚡)
+	- ⚔️ Radiant Inoculation Beam ( 50⚡) | [if {aylinEnergy} >= 50]
 		if {aylinEnergy} >= 50:
 			set {takeAction} = 3
 		else:
 			Not enough energy!
 			jump Aylin Repick
-	- ⚔️ Incandescent Antioxidant ( 80⚡)
+	- ⚔️ Incandescent Antioxidant ( 80⚡) | [if {aylinEnergy} >= 80]
 		if {aylinEnergy} >= 80:
 			set {takeAction} = 4
 		else:
@@ -80,25 +81,25 @@ elif {currentCharacter} == "Mia":
 		set {targetPlayer} = true
 		set {targetIndex} = {mGirlIndex}
 		jump Skip Target
-	- ⚔️ Breath of Cleansing Gust ( 20⚡)
+	- ⚔️ Breath of Cleansing Gust ( 20⚡) | [if {aylinEnergy} >= 20]
 		if {aylinEnergy} >= 20:
 			set {takeAction} = 1
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡)
+	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡) | [if {aylinEnergy} >= 45]
 		if {aylinEnergy} >= 45:
 			set {takeAction} = 2
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- 🔼 Lustrous Bloom of Wellness ( 40⚡)
-		sif {aylinEnergy} >= 40:
+	- 🔼 Lustrous Bloom of Wellness ( 40⚡) | [if {aylinEnergy} >= 40]
+		sif {aylinEnergy} >= 40\:
 		set {takeAction} = 3
 		else:
 		Not enough energy!
 		jump Mia Repick
-	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡)
+	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡) | [if {aylinEnergy} >= 80]
 		if {aylinEnergy} >= 80:
 			set {takeAction} = 4
 		else:
