@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqphoyobbyoa8"
+path="res://.godot/imported/sparkling hot soup-001.wav-e5ee65ddd3bcbf8bbe15f0ac2e1e81aa.sample"
+
+[deps]
+
+source_file="res://audio/VoLines/sparkling hot soup-001.wav"
+dest_files=["res://.godot/imported/sparkling hot soup-001.wav-e5ee65ddd3bcbf8bbe15f0ac2e1e81aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

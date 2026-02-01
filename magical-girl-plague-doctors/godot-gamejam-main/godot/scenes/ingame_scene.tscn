@@ -42,19 +42,19 @@ visible = false
 [node name="StatusBars" parent="UI" node_paths=PackedStringArray("entity") instance=ExtResource("7_5jhce")]
 visible = false
 z_index = 5
-position = Vector2(213, 266)
+position = Vector2(53, 492)
 entity = NodePath("../../battle_manager/Aylin")
 
 [node name="StatusBars2" parent="UI" node_paths=PackedStringArray("entity") instance=ExtResource("7_5jhce")]
 visible = false
 z_index = 5
-position = Vector2(242, 359)
+position = Vector2(273, 490)
 entity = NodePath("../../battle_manager/Mia")
 
 [node name="StatusBars3" parent="UI" node_paths=PackedStringArray("entity") instance=ExtResource("7_5jhce")]
 visible = false
 z_index = 5
-position = Vector2(1041, 293)
+position = Vector2(1077, 492)
 entity = NodePath("../../battle_manager/Infected")
 
 [node name="battle_manager" parent="." instance=ExtResource("6_gadrd")]

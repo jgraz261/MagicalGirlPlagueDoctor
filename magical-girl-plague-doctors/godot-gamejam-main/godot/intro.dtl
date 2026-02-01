@@ -1,4 +1,19 @@
+audio music "res://audio/CartoonTango.ogg"
 [style name="style"]
+[background arg="res://art/BG/AncientEvilAwakens.jpg" fade="1.0" wait="true"]
+An ancient evil has awakened. For centuries, Loviatar, the Goddess of Pestilence has been sealed by the bonds of human solidarity and community action.
+[background arg="res://art/BG/RoamsFree.jpg" fade="1.0" wait="true"]
+However, this social fabric has been threatened and the God of Pestilence roams free once more. But hope is not lost,
+[background arg="res://art/BG/ForestAncestors.jpg" fade="1.0" wait="true"]
+the Forest ancestor spirits have united to awaken the Celestial Bloom Force\: fighters that harness the power of generations of healers to bend time and space.
+join Aylin (transformed_wht) left
+join Mia (transformed_wht) right
+Can our heroes restore community care and peace once more?
+[clear time="1.5"]
+audio music -
+[wait time="2.0"]
+<Empty Text Event>
+audio music "res://audio/CartoonTango.ogg"
 [background arg="res://addons/dialogic/Example Assets/backgrounds/Backstreet_Spring_Day.png" fade="0.0"]
 Two girls were walking into a boba shop, when a commotion was heard from inside!
 *COUGH* *GURGLE* "ARGHHHH!"
@@ -6,4 +21,4 @@ join Aylin leftmost
 join Mia left
 "Oh no!" The girls spring into action
 leave --All--
-jump battle_tl/
+jump transformation_timeline/

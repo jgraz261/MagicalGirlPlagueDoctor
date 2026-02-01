@@ -1,0 +1,46 @@
+audio music "res://audio/theme.ogg" [volume="-2.0"]
+[background arg="res://art/BG/WavyBg.png" fade="0.0"]
+[wait time="1.0"]
+join Aylin (default) left [animation="Slide From Left"]
+join Mia right [animation="Slide From Right" mirrored="true"]
+set {tCounter} = 7
+[wait time="0.5"]
+audio "res://audio/transformation-001.wav" [volume="3.0"]
+label tLoop
+set {tCounter} -= 1
+update Mia (human_wht) [animation="Tada" length="0.2" wait="true"]
+update Aylin (human_wht) [animation="Tada" length="0.2" wait="true"]
+update Mia (default) [animation="Tada" length="0.2" wait="true"]
+update Aylin (default) [animation="Tada" length="0.2" wait="true"]
+if {tCounter} > 0:
+	jump tLoop
+set {tCounter} = 7
+audio "res://audio/transformation-001.wav" [volume="3.0"]
+audio "res://audio/transformation-002.wav" [volume="4.0"]
+label tLoop2
+set {tCounter} -= 1
+update Mia (human_wht) [animation="Tada" length="0.1" wait="true"]
+update Aylin (human_wht) [animation="Tada" length="0.1" wait="true"]
+update Mia (transformed_wht) [animation="Tada" length="0.1" wait="true"]
+update Aylin (transformed_wht) [animation="Tada" length="0.1" wait="true"]
+if {tCounter} > 0:
+	jump tLoop2
+set {tCounter} = 7
+audio "res://audio/transformation-001.wav" [volume="3.0"]
+audio "res://audio/transformation-002.wav" [volume="4.0"]
+audio "res://audio/transformation-003.wav" [volume="5.0"]
+label tLoop3
+set {tCounter} -= 1
+update Mia (transformed_wht) [animation="Tada" length="0.2" wait="true"]
+update Aylin (transformed_wht) [animation="Tada" length="0.2" wait="true"]
+update Mia (transformed) [animation="Tada" length="0.2" wait="true"]
+update Aylin (transformed) [animation="Tada" length="0.2" wait="true"]
+if {tCounter} > 0:
+	jump tLoop3
+audio "res://audio/transformation-001.wav" [volume="3.0"]
+audio "res://audio/transformation-002.wav" [volume="4.0"]
+audio "res://audio/transformation-003.wav" [volume="5.0"]
+update Mia (transformed) [animation="Tada" length="0.2" wait="true"]
+update Aylin (transformed) [animation="Tada" length="0.2" wait="true"]
+[wait_input]
+jump battle_tl/

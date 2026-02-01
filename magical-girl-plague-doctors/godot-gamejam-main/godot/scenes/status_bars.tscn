@@ -1,12 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dv44eg8ob8nw1"]
 
 [ext_resource type="Script" uid="uid://crnlphhibuws5" path="res://status_bars.gd" id="1_pi6ur"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1ctf"]
-bg_color = Color(0.49747336, 0.49747378, 0.49747354, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puw8w"]
-bg_color = Color(1, 1, 1, 1)
+[ext_resource type="Texture2D" uid="uid://cdcfocc4n73b0" path="res://ui/energy_bar.png" id="2_q1ctf"]
+[ext_resource type="FontFile" uid="uid://b71f6h3bxkdu0" path="res://fonts/PatuaOne-Regular.ttf" id="3_puw8w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ym6j7"]
 bg_color = Color(0.43605796, 8.663535e-07, 1.6845763e-07, 1)
@@ -17,23 +13,29 @@ bg_color = Color(0.7294118, 0, 0, 1)
 [node name="StatusBars" type="Node2D"]
 script = ExtResource("1_pi6ur")
 
-[node name="Energy" type="ProgressBar" parent="."]
-modulate = Color(0.2208, 0.69, 0.2208, 1)
-custom_minimum_size = Vector2(150, 14)
-offset_top = 20.32
-offset_right = 150.0
-offset_bottom = 34.320004
-theme_override_styles/background = SubResource("StyleBoxFlat_q1ctf")
-theme_override_styles/fill = SubResource("StyleBoxFlat_puw8w")
-value = 72.18
-show_percentage = false
-
 [node name="Health" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(150, 20)
-offset_right = 150.0
-offset_bottom = 27.0
+offset_right = 181.0
+offset_bottom = 20.0
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 17
 theme_override_styles/background = SubResource("StyleBoxFlat_ym6j7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_l88g0")
-value = 81.82
+value = 100.0
+show_percentage = false
+
+[node name="Energy" type="TextureProgressBar" parent="."]
+offset_top = 20.0
+offset_right = 181.0
+offset_bottom = 36.0
+texture_under = ExtResource("2_q1ctf")
+texture_progress = ExtResource("2_q1ctf")
+tint_under = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_top = 29.0
+offset_right = 46.0
+offset_bottom = 52.0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_puw8w")
+theme_override_font_sizes/font_size = 20

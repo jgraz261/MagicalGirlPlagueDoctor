@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djm8hxf3nff3o"
+path="res://.godot/imported/rose power-001.wav-1bcca9e0e0abff6e7843f8c00e7b9eb8.sample"
+
+[deps]
+
+source_file="res://audio/VoLines/rose power-001.wav"
+dest_files=["res://.godot/imported/rose power-001.wav-1bcca9e0e0abff6e7843f8c00e7b9eb8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

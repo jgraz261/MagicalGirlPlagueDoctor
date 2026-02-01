@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_wmt4y")
-displayName = "Resplendent Herbal Remedy"
+displayName = "Resplendent Flower Burst"
 description = "Heal 50 Plus 50% Energy"
 healAmount = 50
 energyCost = 80

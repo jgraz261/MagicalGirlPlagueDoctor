@@ -1,9 +1,10 @@
-[signal arg="battle_start"]
+audio music "res://audio/Anime_Battle.ogg"
 [background arg="#360a46ff" fade="1.0" wait="true"]
 join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!
-join Mia leftmost [animation="Slide From Right" length="1.0"]
-join Aylin left [animation="Slide From Right" length="1.0"]
+join Mia (transformed) left [animation="Slide From Right" length="1.0"]
+join Aylin (transformed) leftmost [animation="Slide From Right" length="1.0"]
+[signal arg="battle_start"]
 label Next Turn
 if {playerWin} == true:
 	jump Win
@@ -12,29 +13,19 @@ elif {gameOver} == true:
 [signal arg="nextTurn"]
 [signal arg="checkCharacter"]
 
-[wait time="1.5"]
-Alyin Energy\: {aylinEnergy}\
-Mia Energy\: {miaEnergy}\
-Party Health\: {playerHealth}\
-Enemy Health\: {enemyHealth}
+# #[wait time="1.5"]
+# #Alyin Energy\: {aylinEnergy}\
+# #Mia Energy\: {miaEnergy}\
+# #Party Health\: {playerHealth}\
+# #Enemy Health\: {enemyHealth}
 if {currentCharacter}  ==  "Aylin":
-	It's {currentCharacter}'s turn!\
-	What will {currentCharacter} do?\
-	\
-	Alyin Energy\: {aylinEnergy}\
-	Mia Energy\: {miaEnergy}\
-	Party Health\: {playerHealth}\
-	Enemy Health\: {enemyHealth}
+	It's {currentCharacter}'s turn!   ...   What will {currentCharacter} do?\
+	((   Alyin ⚡\: {aylinEnergy}   )) ((   Mia ⚡\: {miaEnergy}   )) ((   Health ❤️\: {playerHealth}   ))
 	set {mGirlIndex} = 0
 elif {currentCharacter}  ==  "Mia":
 	set {mGirlIndex} = 1
-	It's {currentCharacter}'s turn!\
-	What will {currentCharacter} do?\
-	\
-	Alyin Energy\: {aylinEnergy}\
-	Mia Energy\: {miaEnergy}\
-	Party Health\: {playerHealth}\
-	Enemy Health\: {enemyHealth}
+	It's {currentCharacter}'s turn!   ...   What will {currentCharacter} do?\
+	((   Alyin ⚡\: {aylinEnergy}   )) ((   Mia ⚡\: {miaEnergy}   )) ((   Health ❤️\: {playerHealth}   ))
 elif {currentCharacter} == "Infected":
 	set {enemyIndex} = 0
 	The enemy's turn!
@@ -49,27 +40,31 @@ if {currentCharacter} == "Aylin":
 		set {targetPlayer} = true
 		set {targetIndex} = {mGirlIndex}
 		jump Skip Target
-	- 🔽 Briar Thicket Filtration ( 25⚡)
+	- 🔽 Briar Thicket Filtration ( 25⚡) | [if {aylinEnergy} >= 25]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 1
+			audio "res://audio/VoLines/briar thicket filtration-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
-	- 🛡️ Electrostatic Petal Seal ( 15⚡)
+	- 🛡️ Electrostatic Petal Seal ( 25⚡) | [if {aylinEnergy} >= 25]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 2
+			audio "res://audio/VoLines/electrostatic petal-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
-	- ⚔️ Radiant Inoculation Beam ( 50⚡)
+	- ⚔️ Radiant Inoculation Beam ( 50⚡) | [if {aylinEnergy} >= 50]
 		if {aylinEnergy} >= 50:
 			set {takeAction} = 3
+			audio "res://audio/VoLines/radiant innoculation beam-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
-	- ⚔️ Incandescent Antioxidant ( 80⚡)
+	- ⚔️ Incandescent Antioxidant ( 80⚡) | [if {aylinEnergy} >= 80]
 		if {aylinEnergy} >= 80:
 			set {takeAction} = 4
+			audio "res://audio/VoLines/incandescent antioxidant-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
@@ -80,27 +75,31 @@ elif {currentCharacter} == "Mia":
 		set {targetPlayer} = true
 		set {targetIndex} = {mGirlIndex}
 		jump Skip Target
-	- ⚔️ Breath of Cleansing Gust ( 20⚡)
+	- ⚔️ Breath of Cleansing Gust ( 20⚡) | [if {miaEnergy} >= 20]
 		if {miaEnergy} >= 20:
 			set {takeAction} = 1
+			audio "res://audio/VoLines/breath of cleansing gust-003.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡)
+	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡) | [if {miaEnergy} >= 45]
 		if {miaEnergy} >= 45:
 			set {takeAction} = 2
+			audio "res://audio/VoLines/sparkling hot soup-002.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- 🔼 Lustrous Bloom of Wellness ( 40⚡)
+	- 🔼 Lustrous Bloom of Wellness ( 40⚡) | [if {miaEnergy} >= 40]
 		if {miaEnergy} >= 40:
 			set {takeAction} = 3
+			audio "res://audio/VoLines/lustrous bloom of wellness-001.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡)
+	- ❤️‍🩹 Resplendent Flower Burst ( 80⚡) | [if {miaEnergy} >= 80]
 		if {miaEnergy} >= 80:
 			set {takeAction} = 4
+			audio "res://audio/VoLines/resplendent flower burst-001.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
@@ -122,6 +121,7 @@ Target?
 		jump Mia Repick
 label Skip Target
 [signal arg="mGirl action"]
+[signal arg="updateUI"]
 [wait time="1.0"]
 label End Turn
 {battleComment}
