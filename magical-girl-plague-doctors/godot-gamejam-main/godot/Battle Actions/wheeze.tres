@@ -6,5 +6,5 @@
 script = ExtResource("1_r4bw0")
 displayName = "Wheeze"
 description = "Reduce Energy recovery by 50%"
-modAmount = 0.5
+energyMod = 0.5
 metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"

@@ -49,7 +49,9 @@ variables={
 "miaEnergy": 0,
 "playerHealth": 0,
 "playerWin": false,
-"takeAction": 0
+"takeAction": 0,
+"targetIndex": 0,
+"targetPlayer": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

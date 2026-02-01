@@ -51,24 +51,15 @@ func next_turn ():
 			turnOrderToken += 1
 			Dialogic.VAR.currentCharacter = current_character.characterName
 			
-	#if playerTurn and current_character in player_characters:
-		#print ("Player Turn, mGirl Selected")
-	#elif !playerTurn and current_character in enemies:
-		#print ("Enemy Turn, Enemy Selected")
-	#else:
-		#print("Sumthin' ain't right")
-	#Set Current Character in Dialogic
-	#Dialogic.VAR.currentCharacter = current_character.characterName
-	
 	# Regain energy and display battle action options
 	current_character.begin_turn()
 	#Update variables
 	set_Dialogic_variables()
 
-func m_girl_act(characterIndex : int, action : int):
+func m_girl_act(characterIndex : int, action : int, target : Character):
 	battle_action(
 		player_characters[characterIndex].battleActions[action],
-		enemies[0]
+		target
 		)
 
 func enemy_act(enemyIndex : int):
@@ -99,10 +90,10 @@ func check_status(opponents : Array[Character], players: Array[Character]):
 	set_Dialogic_variables()
 
 func battle_action(action : BattleAction, target : Character):
-	print(
-			current_character.characterName + " uses " +
-	 		action.displayName + " on " + target.characterName)
-	current_character.energy -= action.energyCost
+	#print(
+			#current_character.characterName + " uses " +
+	 		#action.displayName + " on " + target.characterName)
+	#current_character.energy -= action.energyCost
 	Dialogic.VAR.battleComment = (
 			current_character.characterName + " uses " +
 	 		action.displayName + " on " + target.characterName)
@@ -132,7 +123,14 @@ func _on_dialogic_signal(argument : String):
 	if argument == "nextTurn":
 		next_turn();
 	if argument == "mGirl action":
-		m_girl_act ( Dialogic.VAR.mGirlIndex, Dialogic.VAR.takeAction )
+		var target_index = Dialogic.VAR.targetIndex
+		var target_player = Dialogic.VAR.targetPlayer
+		var target_char
+		if target_player:
+			target_char = player_characters[target_index]
+		if !target_player:
+			target_char = enemies[target_index]
+		m_girl_act ( Dialogic.VAR.mGirlIndex, Dialogic.VAR.takeAction, target_char)
 	if argument == "enemy action":
 		enemy_act(Dialogic.VAR.enemyIndex)
 		#actionChoice = Dialogic.Actions.takeAction

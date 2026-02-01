@@ -2,20 +2,22 @@ class_name Character
 
 extends Node
 
-const HEALTH_DEFAULT : int = 100
+const HEALTH_DEFAULT : int = 60
 const ENERGY_DEFAULT : int = 0
 const ENERGY_MOD_DEFAULT : float = 1.0
 const DAMAGE_MOD_DEFAULT : float = 1.0
+const DEFENCE_MOD_DEFAULT : float = 1.0
 
 @export var characterName : String
 @export var characterType : String
-@export var health : int = 100
+@export var health : int = 60
 @export var energy : int
-@export var energyGain : int = 50
+@export var energyGain : int = 35
 @export var battleActions : Array[BattleAction]
 
 var energyMod : float = ENERGY_MOD_DEFAULT
 var damageMod : float = DAMAGE_MOD_DEFAULT
+var defenceMod : float = DEFENCE_MOD_DEFAULT
 
 func begin_turn():
 	#Enable UI options
@@ -28,8 +30,9 @@ func end_turn():
 	pass
 	
 func take_damage(amount : int):
-	health -= floor(amount*damageMod)
+	health -= floor((amount*damageMod)*defenceMod)
 	damageMod = DAMAGE_MOD_DEFAULT
+	defenceMod = DEFENCE_MOD_DEFAULT
 	return
 	
 func heal (amount : int):

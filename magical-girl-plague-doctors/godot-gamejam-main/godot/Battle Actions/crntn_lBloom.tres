@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://dt2et0qb02awq"]
+
+[ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="1_x1lp7"]
+
+[resource]
+script = ExtResource("1_x1lp7")
+displayName = "Lustrous Bloom of Wellness"
+description = "Plus 75% Energy Recovery"
+energyCost = 40
+energyMod = 1.75
+metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"

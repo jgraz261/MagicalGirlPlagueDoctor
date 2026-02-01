@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://v0y1lds8mau7"]
+
+[ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="1_mbbrd"]
+
+[resource]
+script = ExtResource("1_mbbrd")
+displayName = "Incandescent Antioxidant"
+description = "Deal damage and weaken"
+damage = 50
+energyCost = 80
+dmgMod = 0.5
+metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"
