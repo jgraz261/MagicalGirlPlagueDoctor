@@ -39,16 +39,91 @@ elif {currentCharacter} == "Infected":
 	The enemy's turn!
 	[wait time="0.5"]
 	[signal arg="enemy action"]
+	jump End Turn
 label Magical Girl Actions
-if {currentCharacter} == "Aylin" or {currentCharacter} == "Mia":
-	- Punch (5 Dmg, -20 Energy)
+if {currentCharacter} == "Aylin":
+	label Aylin Repick
+	- 🛡️ Defend ( 0⚡)
 		set {takeAction} = 0
-	- Kick (15 Dmg, -40 Energy)
-		set {takeAction} = 1
-	[signal arg="mGirl action"]
+		set {targetPlayer} = true
+		set {targetIndex} = {mGirlIndex}
+		jump Skip Target
+	- 🔽 Briar Thicket Filtration ( 25⚡)
+		if {aylinEnergy} >= 25:
+			set {takeAction} = 1
+		else:
+			Not enough energy!
+			jump Aylin Repick
+	- 🛡️ Electrostatic Petal Seal ( 25⚡)
+		if {aylinEnergy} >= 25:
+			set {takeAction} = 2
+		else:
+			Not enough energy!
+			jump Aylin Repick
+	- ⚔️ Radiant Inoculation Beam ( 50⚡)
+		if {aylinEnergy} >= 50:
+			set {takeAction} = 3
+		else:
+			Not enough energy!
+			jump Aylin Repick
+	- ⚔️ Incandescent Antioxidant ( 80⚡)
+		if {aylinEnergy} >= 80:
+			set {takeAction} = 4
+		else:
+			Not enough energy!
+			jump Aylin Repick
+elif {currentCharacter} == "Mia":
+	label Mia Repick
+	- 🛡️ Defend ( 0⚡)
+		set {takeAction} = 0
+		set {targetPlayer} = true
+		set {targetIndex} = {mGirlIndex}
+		jump Skip Target
+	- ⚔️ Breath of Cleansing Gust ( 20⚡)
+		if {aylinEnergy} >= 20:
+			set {takeAction} = 1
+		else:
+			Not enough energy!
+			jump Mia Repick
+	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡)
+		if {aylinEnergy} >= 45:
+			set {takeAction} = 2
+		else:
+			Not enough energy!
+			jump Mia Repick
+	- 🔼 Lustrous Bloom of Wellness ( 40⚡)
+		sif {aylinEnergy} >= 40:
+		set {takeAction} = 3
+		else:
+		Not enough energy!
+		jump Mia Repick
+	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡)
+		if {aylinEnergy} >= 80:
+			set {takeAction} = 4
+		else:
+			Not enough energy!
+			jump Mia Repick
+Target?
+- Enemy
+	set {targetPlayer} = false
+	set {targetIndex} = 0
+- Aylin
+	set {targetPlayer} = true
+	set {targetIndex} = 0
+- Mia
+	set {targetPlayer} = true
+	set {targetIndex} = 1
+- Back
+	[clear time="0.5" step="false" portraits="false" music="false" background="false" positions="false" style="false"]
+	if {currentCharacter} == "Aylin":
+		jump Aylin Repick
+	elif {currentCharacter} == "Mia":
+		jump Mia Repick
+label Skip Target
+[signal arg="mGirl action"]
+[wait time="1.0"]
 label End Turn
 {battleComment}
-[wait time="1.0"]
 [signal arg="endTurn"]
 jump Next Turn
 label Win

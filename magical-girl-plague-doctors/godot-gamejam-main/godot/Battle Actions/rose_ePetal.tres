@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://b15f5qv64y7or"]
+
+[ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="1_fq1ey"]
+
+[resource]
+script = ExtResource("1_fq1ey")
+displayName = "Electrostatic Petal Seal"
+description = "Increase target defence 35%"
+energyCost = 25
+defMod = 0.65
+metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"

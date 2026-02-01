@@ -8,4 +8,5 @@ extends Resource
 @export var healAmount : int
 @export var energyCost : int
 @export var dmgMod : float = 1.0
+@export var defMod : float = 1.0
 @export var energyMod : float = 1.0
