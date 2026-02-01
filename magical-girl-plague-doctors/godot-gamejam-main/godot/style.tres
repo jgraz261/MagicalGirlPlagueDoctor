@@ -38,7 +38,9 @@ overrides = {
 script = ExtResource("2_f5okj")
 scene = ExtResource("6_i734w")
 overrides = {
-"boxes_offset": "Vector2(350, 270)"
+"text_color_hovered": "Color(0.7109375, 0.31844077, 0.69867194, 1)",
+"text_color_pressed": "Color(0.28224257, 0.17887321, 0.42499077, 1)",
+"text_color_use_global": "false"
 }
 
 [resource]

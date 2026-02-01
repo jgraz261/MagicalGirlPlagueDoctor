@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://dc00vkxg2slse"]
+
+[ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="1_wmt4y"]
+
+[resource]
+script = ExtResource("1_wmt4y")
+displayName = "Resplendent Herbal Remedy"
+description = "Heal 50 Plus 50% Energy"
+healAmount = 50
+energyCost = 80
+energyMod = 1.5
+metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"

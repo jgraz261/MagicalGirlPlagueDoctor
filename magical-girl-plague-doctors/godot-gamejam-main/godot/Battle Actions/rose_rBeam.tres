@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://qu7we1bx4yg2"]
+
+[ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="1_8bwc2"]
+
+[resource]
+script = ExtResource("1_8bwc2")
+displayName = "Radiant Inoculation Beam"
+description = "Deal 60 damage"
+damage = 60
+energyCost = 50
+metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"

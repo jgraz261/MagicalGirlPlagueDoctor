@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d1wtm2b4o3c6a" path="res://scripts/battle_action.gd" id="3_lhjl6"]
 [ext_resource type="Resource" uid="uid://csnccbrg8usn4" path="res://Battle Actions/cough.tres" id="4_h4tux"]
 [ext_resource type="Resource" uid="uid://c7ieevni1hqra" path="res://Battle Actions/punch.tres" id="4_wmbtu"]
-[ext_resource type="Resource" uid="uid://qu7we1bx4yg2" path="res://Battle Actions/kick.tres" id="5_mc2mu"]
+[ext_resource type="Resource" uid="uid://qu7we1bx4yg2" path="res://Battle Actions/rose_rBeam.tres" id="5_mc2mu"]
 [ext_resource type="Resource" uid="uid://dcwy386m2b7fl" path="res://Battle Actions/ooze.tres" id="5_wmbtu"]
 [ext_resource type="Resource" uid="uid://ca3tkvp6hy5e4" path="res://Battle Actions/wheeze.tres" id="6_mc2mu"]
 
