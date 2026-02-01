@@ -21,4 +21,4 @@ join Aylin leftmost
 join Mia left
 "Oh no!" The girls spring into action
 leave --All--
-jump battle_tl/
+jump transformation_timeline/
