@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cf3mkyhf5oek1"
+path="res://.godot/imported/lustrous bloom of wellness-001.wav-5486216be53ac85b24cb131e3a400bac.sample"
+
+[deps]
+
+source_file="res://audio/VoLines/lustrous bloom of wellness-001.wav"
+dest_files=["res://.godot/imported/lustrous bloom of wellness-001.wav-5486216be53ac85b24cb131e3a400bac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

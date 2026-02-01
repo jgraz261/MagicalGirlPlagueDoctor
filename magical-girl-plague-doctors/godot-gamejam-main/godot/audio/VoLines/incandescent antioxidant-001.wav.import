@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bn3ib7s3g4lod"
+path="res://.godot/imported/incandescent antioxidant-001.wav-6a05bc28a06553bbc15626f2d0e7755f.sample"
+
+[deps]
+
+source_file="res://audio/VoLines/incandescent antioxidant-001.wav"
+dest_files=["res://.godot/imported/incandescent antioxidant-001.wav-6a05bc28a06553bbc15626f2d0e7755f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

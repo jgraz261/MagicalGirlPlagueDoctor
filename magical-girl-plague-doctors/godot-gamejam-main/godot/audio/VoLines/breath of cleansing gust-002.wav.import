@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2phx87wmsang"
+path="res://.godot/imported/breath of cleansing gust-002.wav-3615b5f2feec692465bd0664717c492e.sample"
+
+[deps]
+
+source_file="res://audio/VoLines/breath of cleansing gust-002.wav"
+dest_files=["res://.godot/imported/breath of cleansing gust-002.wav-3615b5f2feec692465bd0664717c492e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

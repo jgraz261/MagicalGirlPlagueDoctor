@@ -43,24 +43,28 @@ if {currentCharacter} == "Aylin":
 	- 🔽 Briar Thicket Filtration ( 25⚡) | [if {aylinEnergy} >= 25]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 1
+			audio "res://audio/VoLines/briar thicket filtration-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
 	- 🛡️ Electrostatic Petal Seal ( 25⚡) | [if {aylinEnergy} >= 25]
 		if {aylinEnergy} >= 25:
 			set {takeAction} = 2
+			audio "res://audio/VoLines/electrostatic petal-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
 	- ⚔️ Radiant Inoculation Beam ( 50⚡) | [if {aylinEnergy} >= 50]
 		if {aylinEnergy} >= 50:
 			set {takeAction} = 3
+			audio "res://audio/VoLines/radiant innoculation beam-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
 	- ⚔️ Incandescent Antioxidant ( 80⚡) | [if {aylinEnergy} >= 80]
 		if {aylinEnergy} >= 80:
 			set {takeAction} = 4
+			audio "res://audio/VoLines/incandescent antioxidant-001.wav"
 		else:
 			Not enough energy!
 			jump Aylin Repick
@@ -74,24 +78,28 @@ elif {currentCharacter} == "Mia":
 	- ⚔️ Breath of Cleansing Gust ( 20⚡) | [if {miaEnergy} >= 20]
 		if {miaEnergy} >= 20:
 			set {takeAction} = 1
+			audio "res://audio/VoLines/breath of cleansing gust-003.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
 	- ❤️‍🩹 Sparkling Hot Soup ( 45⚡) | [if {miaEnergy} >= 45]
 		if {miaEnergy} >= 45:
 			set {takeAction} = 2
+			audio "res://audio/VoLines/sparkling hot soup-002.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
 	- 🔼 Lustrous Bloom of Wellness ( 40⚡) | [if {miaEnergy} >= 40]
 		if {miaEnergy} >= 40:
 			set {takeAction} = 3
+			audio "res://audio/VoLines/lustrous bloom of wellness-001.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
-	- ❤️‍🩹 Resplendent Herbal Remedy ( 80⚡) | [if {miaEnergy} >= 80]
+	- ❤️‍🩹 Resplendent Flower Burst ( 80⚡) | [if {miaEnergy} >= 80]
 		if {miaEnergy} >= 80:
 			set {takeAction} = 4
+			audio "res://audio/VoLines/resplendent flower burst-001.wav"
 		else:
 			Not enough energy!
 			jump Mia Repick
