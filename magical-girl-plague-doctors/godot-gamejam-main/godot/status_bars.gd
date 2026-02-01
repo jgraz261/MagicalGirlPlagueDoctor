@@ -7,22 +7,26 @@ extends Node2D
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
-	Dialogic.VAR.variable_changed.connect(_on_variable_changed)
-	if "Aylin" == entity.name:
-		visible = true
-	else:
-		visible = false
+	#Dialogic.VAR.variable_changed.connect(_on_variable_changed)
+	$Label.text = entity.name
+	health_bar.value = 100
+	energy_bar.value = 0
 	
+func update_ui():
+	if entity.name != "Infected":
+		health_bar.value = float(Dialogic.VAR.playerHealth) / (entity.HEALTH_DEFAULT * 2) * 100
+		energy_bar.value = float(entity.energy) / 100 * 100
+	else:
+		health_bar.value = float(Dialogic.VAR.playerHealth) / (entity.HEALTH_DEFAULT * 2) * 100
+			
 func _on_dialogic_signal(argument:String):
 	if argument == "battle_start":
+		#update_ui()
 		visible = true
 		print("battle start")
-	if argument == "mGirl action":
-		if Dialogic.VAR.currentCharacter == entity.name:
-			visible = true
-		else:
-			visible = false
-	
+	if argument == "nextTurn":
+		update_ui()
+		#next_turn();
 	#if argument == "nextTurn":
 		#next_turn();
 	#if argument == "mGirl action":
@@ -39,16 +43,16 @@ func _on_dialogic_signal(argument:String):
 func _on_timeline_ended():
 		visible = false
 		
-func _on_variable_changed(info:Dictionary):
-		print(info)
-		if entity.name == "Infected":
-			pass
-		
-		if info["variable"] == "mGirlIndex":
-			if Dialogic.VAR.currentCharacter == entity.name:
-				visible = true
-			else:
-				visible = false
+#func _on_variable_changed(info:Dictionary):
+		#print(info)
+		#if entity.name == "Infected":
+			#pass
+		#
+		#if info["variable"] == "mGirlIndex":
+			#if Dialogic.VAR.currentCharacter == entity.name:
+				#visible = true
+			#else:
+				#visible = false
 				
 		#turn off visibility depending on character present
 		
