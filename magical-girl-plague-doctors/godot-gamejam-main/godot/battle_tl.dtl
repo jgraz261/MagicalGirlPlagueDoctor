@@ -2,8 +2,8 @@ audio music "res://audio/Anime_Battle.ogg"
 [background arg="#360a46ff" fade="1.0" wait="true"]
 join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!
-join Mia leftmost [animation="Slide From Right" length="1.0"]
-join Aylin left [animation="Slide From Right" length="1.0"]
+join Mia (transformed) left [animation="Slide From Right" length="1.0"]
+join Aylin (transformed) leftmost [animation="Slide From Right" length="1.0"]
 [signal arg="battle_start"]
 label Next Turn
 if {playerWin} == true:
@@ -113,6 +113,7 @@ Target?
 		jump Mia Repick
 label Skip Target
 [signal arg="mGirl action"]
+[signal arg="updateUI"]
 [wait time="1.0"]
 label End Turn
 {battleComment}
