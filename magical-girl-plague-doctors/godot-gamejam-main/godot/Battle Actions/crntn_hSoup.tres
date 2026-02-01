@@ -6,5 +6,6 @@
 script = ExtResource("1_72gjo")
 displayName = "Sparkling Hot Soup"
 description = "Heal 35 health"
+healAmount = 35
 energyCost = 45
 metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"
