@@ -1,0 +1,11 @@
+[signal arg="hide_health"]
+audio music "res://audio/theme.ogg"
+[background arg="res://art/BG/WavyBg.png" fade="0.0"]
+join Aylin (transformed) left
+join Mia (transformed) right
+Our heroes purified the Unwell Customer of Pestilence!
+After being showered in flowers, and nursed back to health with their herbal-powered strength,
+the town's spirits were lifted and the Celestial Bloom Force Girls fought off the Pestilence!
+The End!
+[signal arg="restart_game"]
+[end_timeline]

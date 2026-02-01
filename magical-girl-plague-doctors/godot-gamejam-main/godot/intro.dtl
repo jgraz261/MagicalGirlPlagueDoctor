@@ -11,14 +11,14 @@ join Mia (transformed_wht) right
 Can our heroes restore community care and peace once more?
 [clear time="1.5"]
 audio music -
-[wait time="2.0"]
-<Empty Text Event>
+[wait time="1.0"]
 audio music "res://audio/CartoonTango.ogg"
-[background arg="res://addons/dialogic/Example Assets/backgrounds/Backstreet_Spring_Day.png" fade="0.0"]
+[background arg="res://art/BG/GGJ_PlagueGirls_BGExterior.png" fade="0.6" wait="true"]
 Two girls were walking into a boba shop, when a commotion was heard from inside!
 *COUGH* *GURGLE* "ARGHHHH!"
 join Aylin leftmost
 join Mia left
-"Oh no!" The girls spring into action
+Oh no! Looks like Loviatar is starting a plague in the city! 
+The girls spring into action!
 leave --All--
 jump transformation_timeline/

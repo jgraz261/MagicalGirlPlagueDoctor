@@ -25,14 +25,17 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "Aylin": "res://Aylin.dch",
 "Mia": "res://Mia.dch",
-"foe": "res://foe.dch"
+"foe": "res://foe.dch",
+"plage_dr": "res://addons/dialogic/plage_dr.dch"
 }
 directories/dtl_directory={
 "battle_original": "res://battle_original.dtl",
 "battle_tl": "res://battle_tl.dtl",
+"examplebattle": "res://addons/dialogic/examplebattle.dtl",
 "intro": "res://intro.dtl",
 "lore_timeline": "res://addons/dialogic/lore_timeline.dtl",
-"transformation_timeline": "res://addons/dialogic/transformation_timeline.dtl"
+"transformation_timeline": "res://addons/dialogic/transformation_timeline.dtl",
+"victory": "res://addons/dialogic/victory.dtl"
 }
 layout/style_directory={
 "": "res://style.tres",

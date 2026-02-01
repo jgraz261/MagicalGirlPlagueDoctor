@@ -30,6 +30,8 @@ func _on_dialogic_signal(argument:String):
 		update_ui()
 	if argument == "updateUI":
 		update_ui()
+	if argument == "hide_health":
+		visible = false
 		#next_turn();
 	#if argument == "nextTurn":
 		#next_turn();

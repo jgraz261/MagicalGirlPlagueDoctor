@@ -1,5 +1,6 @@
 extends Node
 
+@export var restart_scene:PackedScene
 @export var player_characters : Array[Character]
 @export var enemies : Array[Character]
 var current_character : Character
@@ -90,20 +91,37 @@ func check_status(opponents : Array[Character], players: Array[Character]):
 	set_Dialogic_variables()
 
 func battle_action(action : BattleAction, target : Character):
+	var textNotice : String = ""
 	#print(
 			#current_character.characterName + " uses " +
 	 		#action.displayName + " on " + target.characterName)
 	current_character.energy -= action.energyCost
-	Dialogic.VAR.battleComment = (
-			current_character.characterName + " uses " +
-	 		action.displayName + " on " + target.characterName)
+	
 	
 	if action.damage > 0:
 		target.take_damage(action.damage)
+		textNotice = target.characterName + " takes " + str(action.damage) + " damage! "
 	if action.healAmount > 0:
 		target.heal(action.healAmount)
+		textNotice = target.characterName + " gains " + str(action.healAmount) + " health! "
+	target.defenceMod = action.defMod
 	target.damageMod = action.dmgMod
 	target.energyMod = action.energyMod
+	if action.defMod != 1.0:
+		textNotice = textNotice + target.characterName + "'s defence went up! "
+	if action.dmgMod > 1.0:
+		textNotice = textNotice + target.characterName + "'s power went up! "
+	if action.dmgMod < 1.0:
+		textNotice = textNotice + target.characterName + "'s power went down! "
+	if action.energyMod > 1.0:
+		textNotice = textNotice + target.characterName + "'s energy recovery went up! "
+	if action.energyMod < 1.0:
+		textNotice = textNotice + target.characterName + "'s energy recovery went down! "
+	
+	Dialogic.VAR.battleComment = (
+			current_character.characterName + " uses " +
+	 		action.displayName + " on " + target.characterName + ". " + textNotice)
+	
 	set_Dialogic_variables()
 
 func set_Dialogic_variables():
@@ -139,6 +157,10 @@ func _on_dialogic_signal(argument : String):
 	if argument == "checkCharacter":
 		Dialogic.VAR.currentCharacter = current_character.characterName
 		#print(Dialogic.VAR.currentCharacter)
+	if argument == "restart_game":
+		%FadeOverlay.fade_out()
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://scenes/main_menu_scene.tscn")
 
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)

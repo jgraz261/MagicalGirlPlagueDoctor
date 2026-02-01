@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_i7no4")
 displayName = "Breath of Cleansing Gust"
-description = "Deal 10 damage"
-damage = 10
+description = "Deal 25 damage"
+damage = 25
 energyCost = 20
 metadata/_custom_type_script = "uid://d1wtm2b4o3c6a"
