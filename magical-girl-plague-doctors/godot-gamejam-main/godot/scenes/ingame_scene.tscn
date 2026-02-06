@@ -30,15 +30,6 @@ script = ExtResource("3_a5686")
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 5
 
-[node name="FadeOverlay" parent="UI" instance=ExtResource("1_y6ebv")]
-unique_name_in_owner = true
-visible = false
-
-[node name="PauseOverlay" parent="UI" instance=ExtResource("3_8o178")]
-unique_name_in_owner = true
-process_mode = 2
-visible = false
-
 [node name="StatusBars" parent="UI" node_paths=PackedStringArray("entity") instance=ExtResource("7_5jhce")]
 visible = false
 z_index = 5
@@ -56,6 +47,17 @@ visible = false
 z_index = 5
 position = Vector2(1077, 492)
 entity = NodePath("../../battle_manager/Infected")
+
+[node name="PauseOverlay" parent="UI" instance=ExtResource("3_8o178")]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+z_index = 5
+
+[node name="FadeOverlay" parent="UI" instance=ExtResource("1_y6ebv")]
+unique_name_in_owner = true
+visible = false
+z_index = 5
 
 [node name="battle_manager" parent="." instance=ExtResource("6_gadrd")]
 unique_name_in_owner = true

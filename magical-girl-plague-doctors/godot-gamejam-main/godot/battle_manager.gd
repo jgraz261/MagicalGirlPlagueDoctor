@@ -3,6 +3,7 @@ extends Node
 @export var restart_scene:PackedScene
 @export var player_characters : Array[Character]
 @export var enemies : Array[Character]
+
 var current_character : Character
 var actionChoice : int = 0
 
@@ -133,7 +134,25 @@ func battle_action(action : BattleAction, target : Character):
 		textNotice = textNotice + target.characterName + "'s energy recovery went up! "
 	if action.energyMod < 1.0:
 		textNotice = textNotice + target.characterName + "'s energy recovery went down! "
+			
+	if current_character.characterName == "Infected":
+		if action.displayName != "Wheeze":	
+			var tempdisplayname = action.displayName
+			var temptarget = target.characterName
+			var tempNotice = textNotice
 	
+			target.characterName = "the girls"
+			textNotice = "They take " + str(action.damage) + " damage! "
+			Dialogic.VAR.battleComment = (
+				current_character.characterName + " uses " +
+		 		action.displayName + " on " + target.characterName + ". " + textNotice)
+				
+			action.displayName = tempdisplayname
+			target.characterName = temptarget
+			textNotice = tempNotice
+			
+			set_Dialogic_variables()
+			return
 	Dialogic.VAR.battleComment = (
 			current_character.characterName + " uses " +
 	 		action.displayName + " on " + target.characterName + ". " + textNotice)
@@ -174,8 +193,8 @@ func _on_dialogic_signal(argument : String):
 		Dialogic.VAR.currentCharacter = current_character.characterName
 		#print(Dialogic.VAR.currentCharacter)
 	if argument == "restart_game":
-		%FadeOverlay.fade_out()
-		await get_tree().create_timer(1).timeout
+		%FadeOverlay.modulate.a = 1
+		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://scenes/main_menu_scene.tscn")
 
 func _ready():

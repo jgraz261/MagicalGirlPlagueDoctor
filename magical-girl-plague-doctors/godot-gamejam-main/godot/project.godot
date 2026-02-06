@@ -39,9 +39,10 @@ directories/dtl_directory={
 }
 layout/style_directory={
 "": "res://style.tres",
+"noBarTheme": "res://addons/dialogic/noBarTheme.tres",
 "style": "res://style.tres"
 }
-layout/style_list=["res://style.tres"]
+layout/style_list=["res://style.tres", "res://addons/dialogic/noBarTheme.tres"]
 layout/default_style="res://style.tres"
 variables={
 "aylinEnergy": 0,

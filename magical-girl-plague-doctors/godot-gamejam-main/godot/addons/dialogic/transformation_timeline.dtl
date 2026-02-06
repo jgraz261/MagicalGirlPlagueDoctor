@@ -40,12 +40,12 @@ if {tCounter} > 0:
 audio "res://audio/transformation-001.wav" [volume="3.0"]
 audio "res://audio/transformation-002.wav" [volume="4.0"]
 audio "res://audio/transformation-003.wav" [volume="5.0"]
-audio "res://audio/VoLines/carnation power-002.wav"
 Mia\: CARNATION POWER
+audio "res://audio/VoLines/carnation power-002.wav"
 update Mia (transformed) [animation="Tada" length="0.2" wait="true"]
-audio "res://audio/VoLines/rose power-001.wav"
 Aylin\: ROSE POWER
+audio "res://audio/VoLines/rose power-001.wav"
 update Aylin (transformed) [animation="Tada" length="0.2" wait="true"]
-Mia (transformed): By the power of our magical masks...
-Aylin (transformed): We are the Celestial Bloom Force!!
+Mia\: By the power of our magical masks...
+Aylin\: We are the Celestial Bloom Force!!
 jump battle_tl/

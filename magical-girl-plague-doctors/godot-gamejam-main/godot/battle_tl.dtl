@@ -1,9 +1,7 @@
 audio music "res://audio/Anime_Battle.ogg"
 [background arg="res://art/BG/GGJ_PlagueGirls_BGInterior.png" fade="0.5" wait="true"]
-join foe rightmost [animation="Slide From Left" length="1.0"]
-A wild Unwell Customer appeared!
-join Mia (transformed) left [animation="Slide From Right" length="1.0"]
-join Aylin (transformed) leftmost [animation="Slide From Right" length="1.0"]
+join Mia (transformed) left [animation="Slide From Left" length="1.0"]
+join Aylin (transformed) leftmost [animation="Slide From Left" length="1.0"]
 join foe rightmost [animation="Slide From Left" length="1.0"]
 A wild Unwell Customer appeared!
 [signal arg="battle_start"]
@@ -16,12 +14,12 @@ elif {gameOver} == true:
 [signal arg="checkCharacter"]
 if {currentCharacter}  ==  "Aylin":
 	It's {currentCharacter}'s turn!   ...   What will {currentCharacter} do?\
-	((   Alyin ⚡\: {aylinEnergy}   )) ((   Mia ⚡\: {miaEnergy}   )) ((   Health ❤️\: {playerHealth}   ))
+	(   Aylin ⚡\: {aylinEnergy}   ) (   Mia ⚡\: {miaEnergy}   ) (   Health ❤️\: {playerHealth}   )
 	set {mGirlIndex} = 0
 elif {currentCharacter}  ==  "Mia":
 	set {mGirlIndex} = 1
 	It's {currentCharacter}'s turn!   ...   What will {currentCharacter} do?\
-	((   Alyin ⚡\: {aylinEnergy}   )) ((   Mia ⚡\: {miaEnergy}   )) ((   Health ❤️\: {playerHealth}   ))
+	(   Aylin ⚡\: {aylinEnergy}   ) (   Mia ⚡\: {miaEnergy}   ) (   Health ❤️\: {playerHealth}   )
 elif {currentCharacter} == "Infected":
 	set {enemyIndex} = 0
 	The enemy's turn!
@@ -113,22 +111,27 @@ if {currentCharacter} == "Aylin":
 	update Aylin [animation="Shake X"]
 	if {takeAction} == 1:
 		audio "res://audio/VoLines/briar thicket filtration-001.wav"
+		update foe [animation="Shake X"]
 	if {takeAction} == 2:
 		audio "res://audio/VoLines/electrostatic petal-001.wav"
 	if {takeAction} == 3:
 		audio "res://audio/VoLines/radiant innoculation beam-001.wav"
+		update foe [animation="Shake X"]
 	if {takeAction} == 4:
 		audio "res://audio/VoLines/incandescent antioxidant-001.wav"
+		update foe [animation="Shake X"]
 elif {currentCharacter} == "Mia":
 	update Mia [animation="Shake X"]
 	if {takeAction} == 1:
 		audio "res://audio/VoLines/breath of cleansing gust-003.wav"
+		update foe [animation="Shake X"]
 	if {takeAction} == 2:
 		audio "res://audio/VoLines/sparkling hot soup-002.wav"
 	if {takeAction} == 3:
 		audio "res://audio/VoLines/lustrous bloom of wellness-001.wav"
 	if {takeAction} == 4:
 		audio "res://audio/VoLines/resplendent flower burst-001.wav"
+		update foe [animation="Shake X"]
 {battleComment}
 [signal arg="endTurn"]
 jump Next Turn

@@ -1,3 +1,4 @@
+[style name="style"]
 audio music "res://audio/CartoonTango.ogg"
 [style name="style"]
 [background arg="res://art/BG/AncientEvilAwakens.jpg" fade="1.0" wait="true"]
@@ -18,7 +19,7 @@ Two girls were walking into a boba shop, when a commotion was heard from inside!
 *COUGH* *GURGLE* "ARGHHHH!"
 join Aylin leftmost
 join Mia left
-Oh no! Looks like Loviatar is starting a plague in the city! 
+Oh no! Looks like Loviatar is starting a plague in the city!
 The girls spring into action!
 leave --All--
 jump transformation_timeline/
